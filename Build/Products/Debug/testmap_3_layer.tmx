@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="left-up" width="32" height="8" tilewidth="32" tileheight="32" nextobjectid="1">
  <tileset firstgid="1" name="smb3-cb47f744294" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
-  <image source="smb3-cb47f744294.png" width="1024" height="1024"/>
+  <image source="Assets/smb3-cb47f744294.png" width="1024" height="1024"/>
   <tile id="296">
    <properties>
     <property name="item_id" type="int" value="0"/>
