@@ -9,8 +9,8 @@
 #include "tmx_map.hpp"
 
 tmx_map::tmx_map(){
-
-    tmx_create_map_descriptor(&map_desc);
+   map_desc = new TMX_MAP_DESC();
+    tmx_create_map_descriptor(map_desc);
     
 
 }
@@ -19,7 +19,7 @@ tmx_map::tmx_map(){
 
 
 tmx_map::~tmx_map(){
-    
+    delete map_desc;
 }
 
 
@@ -305,7 +305,7 @@ bool tmx_map::tmx_load_map(const char* _tmx_file_path){
        
         //PARSE THE <map>
         std::string map_content = "";
-        map_content =  tmx_parse_map_desc(complete_content_buffer, &map_desc);
+        map_content =  tmx_parse_map_desc(complete_content_buffer, map_desc);
         //TODO: check map validation
     }
     

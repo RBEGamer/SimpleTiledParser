@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/marcelochsendorf/Desktop/tiled_loader/tiled_loader/main.cpp \
-  /Users/marcelochsendorf/Desktop/tiled_loader/tiled_loader/tmx_map.hpp
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/main.cpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/tmx_map.hpp
