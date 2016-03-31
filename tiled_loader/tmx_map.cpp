@@ -190,10 +190,7 @@ void tmx_map::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buf
      <properties>
      <property name="item_id" type="int" value="0"/>
      </properties>
-     
-     
-     in <properties> gehen bis </properties>  kontent holen
-     zählen
+
      
      */
     char* prop_attr_start = strstr(_tmx_xml_buffer.c_str(), "<properties>");
@@ -221,8 +218,66 @@ void tmx_map::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buf
                 (tmx_tile_desc + _tmx_current_tile)->tmx_properties_count = prop_array_size;
                 (tmx_tile_desc + _tmx_current_tile)->tmx_properties_desc = new TMX_PROPERTYS_DESC[prop_array_size]();
                 //parse attributes
-                
-                
+                char* prop_attr_start = strstr(tile_attr_content.c_str(), "<property");
+                for (int i = 0; i < prop_array_size; i++) {
+                    prop_attr_start = strstr(prop_attr_start, "<property");
+                    if(prop_attr_start != NULL){
+                        prop_attr_start += 9; //remove the <tileset
+                        char* prop_attr_end = strstr(prop_attr_start, ">");
+                        std::string prop_attr_content = "";
+                        prop_attr_content.append(prop_attr_start, prop_attr_end);
+                        
+                        
+                        char* prop_key_start = 0;
+                        char* prop_key_end = 0;
+                        std::string prop_value_string = "";
+                        //SEARCH ATTRIBITE
+                        prop_key_start = strstr(prop_attr_content.c_str(), "name=\"");
+                        if(prop_key_start != nullptr){
+                            prop_key_start += strlen("name=\"");
+                            prop_key_end = strstr(prop_key_start,"\" ");
+                            if(prop_key_end == NULL){prop_key_end = strstr(prop_key_start,"\"");}
+                            if(prop_key_end != NULL){
+                                prop_value_string.append(prop_key_start, prop_key_end);
+                                //DO STUFF
+                               // ((_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tile_desc + i)->tmx_id = atoi(attr_value_string.c_str());
+                                ((tmx_tile_desc + _tmx_current_tile)->tmx_properties_desc + i)->tmx_name = prop_value_string;
+                            }
+                        }
+                        prop_key_start = 0;
+                        prop_key_end = 0;
+                        prop_value_string = "";
+                        
+                        //SEARCH ATTRIBITE
+                        prop_key_start = strstr(prop_attr_content.c_str(), "type=\"");
+                        if(prop_key_start != nullptr){
+                            prop_key_start += strlen("type=\"");
+                            prop_key_end = strstr(prop_key_start,"\" ");
+                            if(prop_key_end == NULL){prop_key_end = strstr(prop_key_start,"\"");}
+                            if(prop_key_end != NULL){
+                                prop_value_string.append(prop_key_start, prop_key_end);
+                                //DO STUFF
+                                // ((_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tile_desc + i)->tmx_id = atoi(attr_value_string.c_str());
+                                if(prop_value_string == "float"){
+                                    ((tmx_tile_desc + _tmx_current_tile)->tmx_properties_desc + i)->tmx_type = TMX_PROPERTY_TYPE::prop_float;
+                                }else if(prop_value_string == "bool"){
+                                    ((tmx_tile_desc + _tmx_current_tile)->tmx_properties_desc + i)->tmx_type = TMX_PROPERTY_TYPE::prop_bool;
+                                }else if(prop_value_string == "int"){
+                                    ((tmx_tile_desc + _tmx_current_tile)->tmx_properties_desc + i)->tmx_type = TMX_PROPERTY_TYPE::prop_int;
+                                }else if(prop_value_string == "string"){
+                                    ((tmx_tile_desc + _tmx_current_tile)->tmx_properties_desc + i)->tmx_type = TMX_PROPERTY_TYPE::prop_string;
+                                }else{
+                                     ((tmx_tile_desc + _tmx_current_tile)->tmx_properties_desc + i)->tmx_type = TMX_PROPERTY_TYPE::prop_invalid;
+                                }
+                                    
+                            }
+                        }
+                        prop_key_start = 0;
+                        prop_key_end = 0;
+                        prop_value_string = "";
+                        
+                    }
+                }
             }
         }
     }

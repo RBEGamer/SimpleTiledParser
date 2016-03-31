@@ -78,7 +78,7 @@ class tmx_map {
     
     
     enum TMX_PROPERTY_TYPE{
-    prp_bool, prop_int, prop_string, prop_float, prop_invalid
+    prp_bool, prop_int, prop_string, prop_float, prop_invalid, prop_bool
     };
     
     struct TMX_PROPERTYS_DESC{
