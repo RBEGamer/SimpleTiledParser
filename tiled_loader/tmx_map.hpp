@@ -162,6 +162,8 @@ class tmx_map {
     
     std::string tmx_parse_map_desc(char* _tmx_xml_buffer,  TMX_MAP_DESC* _map_desc);
     void tmx_parse_tilesets(int _tmx_count_tilesets, std::string  _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc);
+    void tmx_parse_image(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc);
+    void tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tileset_desc);
 };
 
 

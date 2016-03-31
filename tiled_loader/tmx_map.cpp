@@ -64,15 +64,23 @@ void tmx_map::tmx_create_tileset_descriptor(tmx_map::TMX_TILESET_DESC* _tmx_tile
     _tmx_tileset_desc->tmx_tile_desc = 0;
 }
 
+void tmx_map::tmx_parse_image(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc){
+//read image tag
+//read attr
+//put in tileset
+}
 
+void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tileset_desc){
+//count tiles
+    //go tgrough each tile
+    //get attr return content
+    //count properties
+    //count animation
+    
+}
 
 void tmx_map::tmx_parse_tilesets(int _tmx_count_tilesets, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc){
-//parse all arguments
-//search  image
-    //count tile
-    //make array
-    //init array
-    //parse tile
+
     
     
     //get the <map attr="1" attr="2">
@@ -265,7 +273,8 @@ void tmx_map::tmx_parse_tilesets(int _tmx_count_tilesets, std::string _tmx_xml_b
             
             //send tileset_content to other punction
             //parse_tileset_content....
-            
+            tmx_parse_image(i, tileset_content, _tmx_tilesets_desc);
+            tmx_parse_tile(i, tileset_content, _tmx_tilesets_desc);
             
             
             
