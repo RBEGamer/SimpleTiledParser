@@ -172,8 +172,33 @@ void tmx_map::tmx_parse_image(int _tmx_curr_tileset, std::string _tmx_xml_buffer
 
 void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tileset_desc){
 //count tiles
+    const char* tile_counter_itr = strstr(_tmx_xml_buffer.c_str(), "<tile ");
+    int tile_array_size = 0;
+    while (true) {
+        tile_counter_itr = strstr(tile_counter_itr, "<tile ");
+        if (tile_counter_itr != 0) {
+            tile_counter_itr += 9; //"<tileset "
+            tile_array_size++;
+        }else {
+            break;
+        }
+    }
+
+    //set tileset amount in tileset
+   (_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tilecount =tile_array_size;
+    //allocate tiles pointer
+    (_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tile_desc = new TMX_TILE_DESC[tile_array_size]();
+    
+    
+    
     //go tgrough each tile
-    //get attr return content
+    
+    
+    
+    
+    
+    
+    //get attr return content (id)
     //count properties
     //count animation
     
@@ -383,8 +408,10 @@ void tmx_map::tmx_parse_tilesets(int _tmx_count_tilesets, std::string _tmx_xml_b
             tmx_parse_image(i, tileset_content, _tmx_tilesets_desc);
             tmx_parse_tile(i, tileset_content, _tmx_tilesets_desc);
             
-            
-            
+            //parse layer
+            //parse imagelayer
+            //objectgroup nur rechecke
+            char rew = 0;
         }else{
             break;
         }
