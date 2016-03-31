@@ -50,6 +50,7 @@ class tmx_map {
         TMX_MAP_STAGGERAXIS tmx_staggeraxis;
         int tmx_backgroundcolor;
         int tmx_nextobjectid;
+        int tmx_tilesetamount;
     };
 
     
@@ -66,8 +67,15 @@ class tmx_map {
     
     //frame desc
     
-    struct TMX_IMAGE_DESC{
     
+
+    
+    struct TMX_IMAGE_DESC{
+        std::string tmx_image_format;
+        std::string tmx_image_source;
+        int tmx_trans_color;
+        int tmx_width;
+        int tmx_height;
     };
     
     
@@ -81,6 +89,7 @@ class tmx_map {
         int tmx_anmimationid;
         int tmx_framecount;
         TMX_FRAME_DESC* tmx_frames;
+
     };
     
     
@@ -128,7 +137,7 @@ class tmx_map {
         int tmx_spacing;
         int tmx_margin;
         int tmx_tilecount;
-        int tmx_colums;
+        int tmx_columns;
         TMX_IMAGE_DESC tmx_image_desc;
         TMX_TILE_DESC* tmx_tile_desc;
     
@@ -147,10 +156,12 @@ class tmx_map {
     tmx_map();
     ~tmx_map();
     void tmx_create_map_descriptor(TMX_MAP_DESC* _tmx_map_desc);
+    void tmx_create_tileset_descriptor(tmx_map::TMX_TILESET_DESC* _tmx_tileset_desc);
+    void tmx_create_image_desc(tmx_map::TMX_IMAGE_DESC* _tmx_image_desc);
     bool tmx_load_map(const char* _tmx_file_path);
     
     std::string tmx_parse_map_desc(char* _tmx_xml_buffer,  TMX_MAP_DESC* _map_desc);
-    
+    void tmx_parse_tilesets(int _tmx_count_tilesets, std::string  _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc);
 };
 
 

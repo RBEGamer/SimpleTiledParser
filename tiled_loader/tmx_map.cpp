@@ -19,6 +19,13 @@ tmx_map::tmx_map(){
 
 
 tmx_map::~tmx_map(){
+    //cleanup tileset desc
+    delete[] tilesets_desc->tmx_tile_desc->tmx_animation_desc->tmx_frames;
+    delete[] tilesets_desc->tmx_tile_desc->tmx_animation_desc;
+    delete[] tilesets_desc->tmx_tile_desc->tmx_properties_desc;
+    delete[] tilesets_desc;
+  
+    //cleanup map
     delete map_desc;
 }
 
@@ -39,6 +46,238 @@ void tmx_map::tmx_create_map_descriptor(tmx_map::TMX_MAP_DESC* _tmx_map_desc){
     _tmx_map_desc->tmx_nextobjectid = -1;
 }
 //\"
+void tmx_map::tmx_create_image_desc(tmx_map::TMX_IMAGE_DESC* _tmx_image_desc){
+
+}
+
+void tmx_map::tmx_create_tileset_descriptor(tmx_map::TMX_TILESET_DESC* _tmx_tileset_desc){
+    _tmx_tileset_desc->tmx_firstgid = -1;
+    _tmx_tileset_desc->tmx_source = "";
+    _tmx_tileset_desc->tmx_name = "";
+    _tmx_tileset_desc->tmx_tilewidth = -1;
+    _tmx_tileset_desc->tmx_tileheight = -1;
+    _tmx_tileset_desc->tmx_spacing = -1;
+    _tmx_tileset_desc->tmx_margin = -1;
+    _tmx_tileset_desc->tmx_tilecount = -1;
+    _tmx_tileset_desc->tmx_columns = -1;
+    tmx_create_image_desc(&_tmx_tileset_desc->tmx_image_desc);
+    _tmx_tileset_desc->tmx_tile_desc = 0;
+}
+
+
+
+void tmx_map::tmx_parse_tilesets(int _tmx_count_tilesets, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc){
+//parse all arguments
+//search  image
+    //count tile
+    //make array
+    //init array
+    //parse tile
+    
+    
+    //get the <map attr="1" attr="2">
+    char* tileset_attr_start = strstr(_tmx_xml_buffer.c_str(), "<tileset");
+    
+    for (int i = 0; i < _tmx_count_tilesets; i++) {
+        tileset_attr_start = strstr(tileset_attr_start, "<tileset");
+        if(tileset_attr_start != NULL){
+        tileset_attr_start += 8; //remove the <tileset
+        char* tileset_attr_end = strstr(tileset_attr_start, ">");
+        std::string tileset_attr_content = "";
+        tileset_attr_content.append(tileset_attr_start, tileset_attr_end);
+        char* tileset_end = strstr(++tileset_attr_end, " </tileset>");
+        std::string tileset_content = ""; //the content of the tileset
+        tileset_content.append(tileset_attr_end,tileset_end);
+            
+            
+        
+            
+            //parse arguments
+            char* attr_key_start = 0;
+            char* attr_key_end = 0;
+            std::string attr_value_string = "";
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(tileset_attr_content.c_str(), "firstgid=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("firstgid=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_tilesets_desc+i)->tmx_firstgid = atoi(attr_value_string.c_str());
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(tileset_attr_content.c_str(), "source=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("source=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_tilesets_desc+i)->tmx_source = attr_value_string;
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            
+            
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(tileset_attr_content.c_str(), "name=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("name=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_tilesets_desc+i)->tmx_name = attr_value_string;
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(tileset_attr_content.c_str(), "tilewidth=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("tilewidth=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_tilesets_desc+i)->tmx_tilewidth = atoi(attr_value_string.c_str());
+
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            
+            
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(tileset_attr_content.c_str(), "tileheight=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("tileheight=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_tilesets_desc+i)->tmx_tileheight = atoi(attr_value_string.c_str());
+                    
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            
+            
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(tileset_attr_content.c_str(), "spacing=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("spacing=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_tilesets_desc+i)->tmx_spacing = atoi(attr_value_string.c_str());
+                    
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            
+            
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(tileset_attr_content.c_str(), "margin=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("margin=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_tilesets_desc+i)->tmx_margin = atoi(attr_value_string.c_str());
+                    
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            
+            
+            
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(tileset_attr_content.c_str(), "tilecount=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("tilecount=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_tilesets_desc+i)->tmx_tilecount = atoi(attr_value_string.c_str());
+                    
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            
+
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(tileset_attr_content.c_str(), "columns=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("columns=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_tilesets_desc+i)->tmx_columns = atoi(attr_value_string.c_str());
+                    
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            
+            
+            //send tileset_content to other punction
+            //parse_tileset_content....
+            
+            
+            
+            
+        }else{
+            break;
+        }
+        
+    }
+    
+    
+}
+
 
 std::string tmx_map::tmx_parse_map_desc(char* _tmx_xml_buffer, tmx_map::TMX_MAP_DESC* _map_desc){
     //get the <map attr="1" attr="2">
@@ -307,6 +546,41 @@ bool tmx_map::tmx_load_map(const char* _tmx_file_path){
         std::string map_content = "";
         map_content =  tmx_parse_map_desc(complete_content_buffer, map_desc);
         //TODO: check map validation
+        
+        
+        
+        
+        //now parse the tilesets
+        //first count the tilesets to allocate the array
+        const char* tileset_counter_itr = strstr(map_content.c_str(), "<tileset ");
+        int tileset_array_size = 0;
+        while (true) {
+            tileset_counter_itr = strstr(tileset_counter_itr, "<tileset ");
+            if (tileset_counter_itr != 0) {
+                tileset_counter_itr += 9; //"<tileset "
+                tileset_array_size++;
+            }else {
+                break;
+            }
+        }
+        //init all new allocations -> set invalid values set pointer to 0
+        tilesets_desc = new TMX_TILESET_DESC[tileset_array_size]();
+        for (int i = 0; i < tileset_array_size; i++) {
+            tmx_create_tileset_descriptor((tilesets_desc+i));
+        }
+        //now parse the tileset attributes and process the content further
+        tmx_parse_tilesets(tileset_array_size, map_content, tilesets_desc);
+        map_desc->tmx_tilesetamount =tileset_array_size;
+
+        
+        
+        
+        
+        
+        
+        
+        
+        char el = 0;
     }
     
     //free buffer
