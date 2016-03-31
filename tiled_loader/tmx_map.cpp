@@ -179,6 +179,118 @@ void tmx_map::tmx_parse_animation(int _tmx_current_tile, std::string _tmx_xml_bu
  </animation>
  */
 
+    //count animation
+    const char* anim_counter_itr = strstr(_tmx_xml_buffer.c_str(), "<animation>");
+    if(anim_counter_itr == NULL){return;}
+    int anim_array_size = 0;
+    while (true) {
+        anim_counter_itr = strstr(anim_counter_itr, "<animation>");
+        if (anim_counter_itr != 0) {
+            anim_counter_itr += 11; //"<property "
+            anim_array_size++;
+        }else {
+            break;
+        }
+    }
+    //allocate anim desc
+        (tmx_tile_desc + _tmx_current_tile)->tmx_animation_count = anim_array_size;
+        (tmx_tile_desc + _tmx_current_tile)->tmx_animation_desc = new TMX_ANIMATION_DESC[anim_array_size]();
+
+    //goto each <anim> and count frames
+    
+    for (int j = 0; j < anim_array_size; j++) {
+        char* animfr_attr_start = strstr(_tmx_xml_buffer.c_str(), "<animation>");
+        if(animfr_attr_start != NULL){
+            animfr_attr_start += 11; //remove <properties>
+            char* animfr_attr_end = strstr(animfr_attr_start, "</animation>");
+            if(animfr_attr_end != NULL){
+                std::string animfr_attr_content = "";
+                animfr_attr_content.append(animfr_attr_start, animfr_attr_end);
+                if(animfr_attr_content != ""){
+                    //count frames
+                    const char* frame_counter_itr = strstr(animfr_attr_content.c_str(), "<frame ");
+                    int frame_array_size = 0;
+                    while (true) {
+                        frame_counter_itr = strstr(frame_counter_itr, "<frame ");
+                        if (frame_counter_itr != 0) {
+                            frame_counter_itr += 7; //"<property "
+                            frame_array_size++;
+                        }else {
+                            break;
+                        }
+                    }
+                    
+                    
+                    //allocate frame
+                    ((tmx_tile_desc + _tmx_current_tile)->tmx_animation_desc+j)->tmx_framecount = frame_array_size;
+                    ((tmx_tile_desc + _tmx_current_tile)->tmx_animation_desc+j)->tmx_anmimationid = j;
+                    ((tmx_tile_desc + _tmx_current_tile)->tmx_animation_desc+j)->tmx_frames = new TMX_FRAME_DESC[frame_array_size]();
+                    
+                    //pars attr from frame
+                    //<frame tileid="64" duration="250"/>
+                    //animfr_attr_content
+                    //
+                    char* frame_attr_start = strstr(animfr_attr_content.c_str(), "<frame ");
+                    for (int i = 0; i < frame_array_size; i++) {
+                        frame_attr_start = strstr(frame_attr_start, "<frame ");
+                        if(frame_attr_start != NULL){
+                            frame_attr_start += 7; //remove the <tileset
+                            char* frame_attr_end = strstr(frame_attr_start, ">");
+                            std::string frame_attr_content = "";
+                            frame_attr_content.append(frame_attr_start, frame_attr_end);
+                            if(frame_attr_content == ""){continue;}
+                        
+                        (((tmx_tile_desc + _tmx_current_tile)->tmx_animation_desc+j)->tmx_frames+i)->tmx_framepos = i;
+                            
+                            char* frame_key_start = 0;
+                            char* frame_key_end = 0;
+                            std::string frame_value_string = "";
+                            //SEARCH ATTRIBITE
+                            frame_key_start = strstr(frame_attr_content.c_str(), "tileid=\"");
+                            if(frame_key_start != nullptr){
+                                frame_key_start += strlen("tileid=\"");
+                                frame_key_end = strstr(frame_key_start,"\" ");
+                                if(frame_key_end == NULL){frame_key_end = strstr(frame_key_start,"\"");}
+                                if(frame_key_end != NULL){
+                                    frame_value_string.append(frame_key_start, frame_key_end);
+                                    //DO STUFF
+                        (((tmx_tile_desc + _tmx_current_tile)->tmx_animation_desc+j)->tmx_frames+i)->tmx_tileid = atoi(frame_value_string.c_str());
+                                }
+                            }
+                            frame_key_start = 0;
+                            frame_key_end = 0;
+                            frame_value_string = "";
+                            
+                            
+                                                       //SEARCH ATTRIBITE
+                            frame_key_start = strstr(frame_attr_content.c_str(), "duration=\"");
+                            if(frame_key_start != nullptr){
+                                frame_key_start += strlen("duration=\"");
+                                frame_key_end = strstr(frame_key_start,"\" ");
+                                if(frame_key_end == NULL){frame_key_end = strstr(frame_key_start,"\"");}
+                                if(frame_key_end != NULL){
+                                    frame_value_string.append(frame_key_start, frame_key_end);
+                                    //DO STUFF
+                                    (((tmx_tile_desc + _tmx_current_tile)->tmx_animation_desc+j)->tmx_frames+i)->tmx_duration = atoi(frame_value_string.c_str());
+                                }
+                            }
+                            frame_key_start = 0;
+                            frame_key_end = 0;
+                            frame_value_string = "";
+
+                        
+                        }
+                    }
+                    
+                    
+                    
+                }
+            }
+        }
+        
+        
+
+    }//end for
     
     
     
@@ -218,11 +330,11 @@ void tmx_map::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buf
                 (tmx_tile_desc + _tmx_current_tile)->tmx_properties_count = prop_array_size;
                 (tmx_tile_desc + _tmx_current_tile)->tmx_properties_desc = new TMX_PROPERTYS_DESC[prop_array_size]();
                 //parse attributes
-                char* prop_attr_start = strstr(tile_attr_content.c_str(), "<property");
+                char* prop_attr_start = strstr(tile_attr_content.c_str(), "<property ");
                 for (int i = 0; i < prop_array_size; i++) {
-                    prop_attr_start = strstr(prop_attr_start, "<property");
+                    prop_attr_start = strstr(prop_attr_start, "<property ");
                     if(prop_attr_start != NULL){
-                        prop_attr_start += 9; //remove the <tileset
+                        prop_attr_start += 10; //remove the <tileset
                         char* prop_attr_end = strstr(prop_attr_start, ">");
                         std::string prop_attr_content = "";
                         prop_attr_content.append(prop_attr_start, prop_attr_end);
