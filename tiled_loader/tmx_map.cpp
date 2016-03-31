@@ -170,6 +170,65 @@ void tmx_map::tmx_parse_image(int _tmx_curr_tileset, std::string _tmx_xml_buffer
     attr_value_string = "";
 }
 
+
+void tmx_map::tmx_parse_animation(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_TILE_DESC* tmx_tile_desc){
+/*
+ <animation>
+ <frame tileid="64" duration="250"/>
+ <frame tileid="80" duration="250"/>
+ </animation>
+ */
+
+    
+    
+    
+    
+}
+
+void tmx_map::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_TILE_DESC* tmx_tile_desc){
+    /*
+     <properties>
+     <property name="item_id" type="int" value="0"/>
+     </properties>
+     
+     
+     in <properties> gehen bis </properties>  kontent holen
+     zählen
+     
+     */
+    char* prop_attr_start = strstr(_tmx_xml_buffer.c_str(), "<properties>");
+    if(prop_attr_start != NULL){
+        prop_attr_start += 12; //remove <properties>
+    char* prop_attr_end = strstr(prop_attr_start, "</properties>");
+        if(prop_attr_end != NULL){
+            std::string tile_attr_content = "";
+            tile_attr_content.append(prop_attr_start, prop_attr_end);
+            if(tile_attr_content != ""){
+                //count properties
+                const char* prop_counter_itr = strstr(_tmx_xml_buffer.c_str(), "<property ");
+                int prop_array_size = 0;
+                while (true) {
+                    prop_counter_itr = strstr(prop_counter_itr, "<property ");
+                    if (prop_counter_itr != 0) {
+                        prop_counter_itr += 10; //"<property "
+                        prop_array_size++;
+                    }else {
+                        break;
+                    }
+                }
+                //allocate prop array
+                if(prop_array_size < 1){return;}
+                (tmx_tile_desc + _tmx_current_tile)->tmx_properties_count = prop_array_size;
+                (tmx_tile_desc + _tmx_current_tile)->tmx_properties_desc = new TMX_PROPERTYS_DESC[prop_array_size]();
+                //parse attributes
+                
+                
+            }
+        }
+    }
+}
+
+
 void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tileset_desc){
 //count tiles
     const char* tile_counter_itr = strstr(_tmx_xml_buffer.c_str(), "<tile ");
@@ -190,22 +249,59 @@ void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer,
     (_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tile_desc = new TMX_TILE_DESC[tile_array_size]();
     
     
-    
     //go tgrough each tile
+    char* tile_attr_start = strstr(_tmx_xml_buffer.c_str(), "<tile");
+    for (int i = 0; i < tile_array_size; i++) {
+        
+        
+        tile_attr_start = strstr(tile_attr_start, "<tile");
+        if(tile_attr_start != NULL){
+            tile_attr_start += 5; //remove the <tileset
+            char* tileset_attr_end = strstr(tile_attr_start, ">");
+            std::string tile_attr_content = "";
+            tile_attr_content.append(tile_attr_start, tileset_attr_end);
+            char* tileset_end = strstr(++tileset_attr_end, " </tile>");
+            std::string tile_content = ""; //the content of the tileset
+            tile_content.append(tileset_attr_end,tileset_end);
+            
+            //get attr return content (id)
+            char* attr_key_start = 0;
+            char* attr_key_end = 0;
+            std::string attr_value_string = "";
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(tile_content.c_str(), "id=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("id=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    ((_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tile_desc + i)->tmx_id = atoi(attr_value_string.c_str());
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            //parse animations
+            tmx_parse_animation(i, tile_content, (_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tile_desc);
+            //parse properties
+            tmx_parse_property(i,tile_content,(_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tile_desc);
+        }
+    }
+
     
     
     
     
     
     
-    //get attr return content (id)
-    //count properties
-    //count animation
+
     
     
     
     /*
-     BEIM ERSTELLEN DER TILES ALLE TILES MIT ID ERSTELLEN UND DA WO PROPERTIES VORHANDEN SIND DIESE SPEICHERN
+     TODO BEIM ERSTELLEN DER TILES ALLE TILES MIT ID ERSTELLEN UND DA WO PROPERTIES VORHANDEN SIND DIESE SPEICHERN
      ZUSÄTZLICH NOCH DEN PIXELAUSCHNITT MIRSPEICHERN
      */
     

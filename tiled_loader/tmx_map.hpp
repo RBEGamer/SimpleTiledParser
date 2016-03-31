@@ -54,22 +54,6 @@ class tmx_map {
     };
 
     
-    
-    //image desc
-    
-    
-    //tile desc (multivel prob, aimation)
-    
-    
-    //property desc
-    
-    //animation desc
-    
-    //frame desc
-    
-    
-
-    
     struct TMX_IMAGE_DESC{
         std::string tmx_image_format;
         std::string tmx_image_source;
@@ -113,20 +97,7 @@ class tmx_map {
     };
     
     
-    //tilesets zählen
-    //passend allocatieren
-    //alle init
-    //tileset desc parsen
-    //image parsen
-    //tiles parsen
-    //properties zählen int tile speichern
-    //allociren
-    //parsen
-    //animations zählen in tile speichern
-    //instancen
-    //frames zählen speichern
-    //frames erstllen
-    //parsen
+
     
     struct TMX_TILESET_DESC{
         int tmx_firstgid;
@@ -164,6 +135,8 @@ class tmx_map {
     void tmx_parse_tilesets(int _tmx_count_tilesets, std::string  _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc);
     void tmx_parse_image(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc);
     void tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tileset_desc);
+    void tmx_parse_animation(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_TILE_DESC* tmx_tile_desc);
+    void tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_TILE_DESC* tmx_tile_desc);
 };
 
 
