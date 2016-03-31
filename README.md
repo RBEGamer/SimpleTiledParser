@@ -2,7 +2,7 @@
 A simple parser to parse maps from the Tiled Application into your Game.
 
 Support:
-* Animations
+* Multible animations per tile!
 * Properties
 * Only CSV Encoding
 * 
