@@ -174,9 +174,15 @@ private:
     void tmx_parse_image(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc);
     void tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tileset_desc);
     void tmx_parse_animation(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_TILE_DESC* tmx_tile_desc);
+    
     void tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_TILE_DESC* tmx_tile_desc);
+    void tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_LAYER_DESC* tmx_tile_desc);
+    
+    void tmx_parse_data(int _tmx_current_layer, std::string _tmx_xml_buffer, TMX_LAYER_DESC* tmx_layer_desc);
+    
     void tmx_create_layer_descriptor(tmx_map::TMX_LAYER_DESC* _tmx_layer_desc);
     void tmx_parse_layers(int _tmx_count_layers, std::string _tmx_xml_buffer, TMX_LAYER_DESC* _tmx_layers_desc);
+    
     
     void tmx_create_map_descriptor(TMX_MAP_DESC* _tmx_map_desc);
     void tmx_create_tileset_descriptor(tmx_map::TMX_TILESET_DESC* _tmx_tileset_desc);

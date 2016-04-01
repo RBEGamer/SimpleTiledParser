@@ -88,6 +88,7 @@ void tmx_map::tmx_create_layer_descriptor(tmx_map::TMX_LAYER_DESC* _tmx_layer_de
     _tmx_layer_desc->tmx_visible = true;
     _tmx_layer_desc->tmx_width = 0;
 }
+
 void tmx_map::tmx_parse_image(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc){
 //read image tag
 //read attr
@@ -415,6 +416,106 @@ void tmx_map::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buf
     }
 }
 
+void tmx_map::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_LAYER_DESC* tmx_layer_desc){
+    /*
+     <properties>
+     <property name="item_id" type="int" value="0"/>
+     </properties>
+     
+     
+     */
+    char* prop_attr_start = strstr(_tmx_xml_buffer.c_str(), "<properties>");
+    if(prop_attr_start != NULL){
+        prop_attr_start += 12; //remove <properties>
+        char* prop_attr_end = strstr(prop_attr_start, "</properties>");
+        if(prop_attr_end != NULL){
+            std::string tile_attr_content = "";
+            tile_attr_content.append(prop_attr_start, prop_attr_end);
+            if(tile_attr_content != ""){
+                //count properties
+                const char* prop_counter_itr = strstr(_tmx_xml_buffer.c_str(), "<property ");
+                int prop_array_size = 0;
+                while (true) {
+                    prop_counter_itr = strstr(prop_counter_itr, "<property ");
+                    if (prop_counter_itr != 0) {
+                        prop_counter_itr += 10; //"<property "
+                        prop_array_size++;
+                    }else {
+                        break;
+                    }
+                }
+                //allocate prop array
+                if(prop_array_size < 1){return;}
+                (tmx_layer_desc + _tmx_current_tile)->tmx_property_count = prop_array_size;
+                (tmx_layer_desc + _tmx_current_tile)->tmx_properties = new TMX_PROPERTYS_DESC[prop_array_size]();
+                //parse attributes
+                char* prop_attr_start = strstr(tile_attr_content.c_str(), "<property ");
+                for (int i = 0; i < prop_array_size; i++) {
+                    prop_attr_start = strstr(prop_attr_start, "<property ");
+                    if(prop_attr_start != NULL){
+                        prop_attr_start += 10; //remove the <tileset
+                        char* prop_attr_end = strstr(prop_attr_start, ">");
+                        std::string prop_attr_content = "";
+                        prop_attr_content.append(prop_attr_start, prop_attr_end);
+                        
+                        
+                        char* prop_key_start = 0;
+                        char* prop_key_end = 0;
+                        std::string prop_value_string = "";
+                        //SEARCH ATTRIBITE
+                        prop_key_start = strstr(prop_attr_content.c_str(), "name=\"");
+                        if(prop_key_start != nullptr){
+                            prop_key_start += strlen("name=\"");
+                            prop_key_end = strstr(prop_key_start,"\" ");
+                            if(prop_key_end == NULL){prop_key_end = strstr(prop_key_start,"\"");}
+                            if(prop_key_end != NULL){
+                                prop_value_string.append(prop_key_start, prop_key_end);
+                                //DO STUFF
+                                // ((_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tile_desc + i)->tmx_id = atoi(attr_value_string.c_str());
+                                ((tmx_layer_desc + _tmx_current_tile)->tmx_properties + i)->tmx_name = prop_value_string;
+                            }
+                        }
+                        prop_key_start = 0;
+                        prop_key_end = 0;
+                        prop_value_string = "";
+                        
+                        //SEARCH ATTRIBITE
+                        prop_key_start = strstr(prop_attr_content.c_str(), "type=\"");
+                        if(prop_key_start != nullptr){
+                            prop_key_start += strlen("type=\"");
+                            prop_key_end = strstr(prop_key_start,"\" ");
+                            if(prop_key_end == NULL){prop_key_end = strstr(prop_key_start,"\"");}
+                            if(prop_key_end != NULL){
+                                prop_value_string.append(prop_key_start, prop_key_end);
+                                //DO STUFF
+                                // ((_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tile_desc + i)->tmx_id = atoi(attr_value_string.c_str());
+                                if(prop_value_string == "float"){
+                                    ((tmx_layer_desc + _tmx_current_tile)->tmx_properties + i)->tmx_type = TMX_PROPERTY_TYPE::prop_float;
+                                }else if(prop_value_string == "bool"){
+                                    ((tmx_layer_desc + _tmx_current_tile)->tmx_properties + i)->tmx_type = TMX_PROPERTY_TYPE::prop_bool;
+                                }else if(prop_value_string == "int"){
+                                    ((tmx_layer_desc + _tmx_current_tile)->tmx_properties + i)->tmx_type = TMX_PROPERTY_TYPE::prop_int;
+                                }else if(prop_value_string == "string"){
+                                    ((tmx_layer_desc + _tmx_current_tile)->tmx_properties + i)->tmx_type = TMX_PROPERTY_TYPE::prop_string;
+                                }else{
+                                    ((tmx_layer_desc + _tmx_current_tile)->tmx_properties + i)->tmx_type = TMX_PROPERTY_TYPE::prop_invalid;
+                                }
+                                
+                            }
+                        }
+                        prop_key_start = 0;
+                        prop_key_end = 0;
+                        prop_value_string = "";
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
 
 void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tileset_desc){
 //count tiles
@@ -486,7 +587,56 @@ void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer,
     
 }
 
+void tmx_map::tmx_parse_data(int _tmx_current_layer, std::string _tmx_xml_buffer, TMX_LAYER_DESC* tmx_layer_desc){
+//count data
+    const char* data_counter_itr = strstr(_tmx_xml_buffer.c_str(), "<data ");
+    int data_array_size = 0;
+    while (true) {
+        data_counter_itr = strstr(data_counter_itr, "<data ");
+        if (data_counter_itr != 0) {
+            data_counter_itr += 6; //"<data  "
+            data_array_size++;
+        }else {
+            break;
+        }
+    }
+ 
+    //alloc
 
+    if(data_array_size < 1){return;}
+    (tmx_layer_desc +_tmx_current_layer)->tmx_data_count =data_array_size;
+    (tmx_layer_desc +_tmx_current_layer)->tmx_data = new TMX_DATA_DESC[data_array_size]();
+    //for each data
+
+    
+    char* data_attr_start = strstr(_tmx_xml_buffer.c_str(), "<data ");
+    
+    for (int i = 0; i < data_array_size; i++) {
+        data_attr_start = strstr(data_attr_start, "<data ");
+        if(data_attr_start != NULL){
+            data_attr_start += 6; //remove the <tileset
+            char* data_attr_end = strstr(data_attr_start, ">");
+            std::string data_attr_content = "";
+            data_attr_content.append(data_attr_start, data_attr_end);
+            char* data_end = strstr(++data_attr_end, " </data>");
+            std::string data_content = ""; //the content of the tileset
+            data_content.append(data_attr_end,data_end);
+            if(data_attr_content == ""){continue;}
+            
+            
+            
+            //get attr
+            //get content
+            //get csv !!!
+            
+            
+            
+            
+
+        }
+    }//end for
+    
+}
 
 void tmx_map::tmx_parse_layers(int _tmx_count_layers, std::string _tmx_xml_buffer, TMX_LAYER_DESC* _tmx_layers_desc){
 
@@ -510,9 +660,10 @@ void tmx_map::tmx_parse_layers(int _tmx_count_layers, std::string _tmx_xml_buffe
             char* layer_end = strstr(++layer_attr_end, " </layer>");
             std::string layer_content = ""; //the content of the tileset
             layer_content.append(layer_attr_end,layer_end);
-            if(layer_content == ""){continue;}
+            if(layer_attr_content == ""){continue;}
             
             
+
             //PARSE ATTR
             
             //parse arguments
@@ -647,12 +798,10 @@ void tmx_map::tmx_parse_layers(int _tmx_count_layers, std::string _tmx_xml_buffe
             attr_value_string = "";
             
             
-        
-        
-            
-            //COUNT PROPS
-            //COUNT DATA
-            //
+        if(layer_content == ""){continue;}
+            tmx_parse_property(i, layer_content, _tmx_layers_desc);
+            tmx_parse_data(i, layer_content, _tmx_layers_desc);
+
     }//end for
     
         }
