@@ -587,6 +587,12 @@ void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer,
     
 }
 
+void tmx_map::tmx_parse_csv_none_encoding(int _tmx_curr_data, std::string _tmx_xml_buffer, TMX_DATA_DESC* _tmx_data_desc){
+    //alle tiles erstellen
+    //ZUERST SCHAUEN OB CSV UND NONE COMPRESSSION
+    //func parse csv charpointer rein und dann /n entfernen ,zählen rows cols berechenn array bauen nach komma trennen value atoien  in array struct rein fertig
+}
+
 void tmx_map::tmx_parse_data(int _tmx_current_layer, std::string _tmx_xml_buffer, TMX_LAYER_DESC* tmx_layer_desc){
 //count data
     const char* data_counter_itr = strstr(_tmx_xml_buffer.c_str(), "<data ");
@@ -618,18 +624,77 @@ void tmx_map::tmx_parse_data(int _tmx_current_layer, std::string _tmx_xml_buffer
             char* data_attr_end = strstr(data_attr_start, ">");
             std::string data_attr_content = "";
             data_attr_content.append(data_attr_start, data_attr_end);
-            char* data_end = strstr(++data_attr_end, " </data>");
+            char* data_end = strstr(++data_attr_end, "</data>");
             std::string data_content = ""; //the content of the tileset
             data_content.append(data_attr_end,data_end);
             if(data_attr_content == ""){continue;}
             
+            //parse arguments
+            char* attr_key_start = 0;
+            char* attr_key_end = 0;
+            std::string attr_value_string = "";
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(data_attr_content.c_str(), "encoding=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("encoding=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //TODO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    //(_tmx_layers_desc+i)->tmx_name = attr_value_string;
+                    if(attr_value_string == "csv"){
+                    ((tmx_layer_desc +_tmx_current_layer)->tmx_data+i)->tmx_data_encoding = TMX_DATA_ENCODING::tmx_data_encoding_csv;
+                    }else if(attr_value_string == "base64"){
+                        ((tmx_layer_desc +_tmx_current_layer)->tmx_data+i)->tmx_data_encoding = TMX_DATA_ENCODING::tmx_data_enconding_base64;
+                    }else{
+                        ((tmx_layer_desc +_tmx_current_layer)->tmx_data+i)->tmx_data_encoding = TMX_DATA_ENCODING::tmx_dataencoding_invalid;
+                    }
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
             
             
+            //SET DEFUALT TO NONE
+             ((tmx_layer_desc +_tmx_current_layer)->tmx_data+i)->tmx_data_compression = TMX_DATA_COMPRESSION::tmx_data_compression_none;
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(data_attr_content.c_str(), "compression=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("compression=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    //(_tmx_layers_desc+i)->tmx_name = attr_value_string;
+                    if(attr_value_string == "gzip"){
+                        ((tmx_layer_desc +_tmx_current_layer)->tmx_data+i)->tmx_data_compression = TMX_DATA_COMPRESSION::tmx_data_compression_gzip;
+                    }else if(attr_value_string == "zlib"){
+                        ((tmx_layer_desc +_tmx_current_layer)->tmx_data+i)->tmx_data_compression = TMX_DATA_COMPRESSION::tmx_data_compression_zlib;
+                    }else{
+                        ((tmx_layer_desc +_tmx_current_layer)->tmx_data+i)->tmx_data_compression = TMX_DATA_COMPRESSION::tmx_data_compression_invalid;
+                    }
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
             //get attr
             //get content
             //get csv !!!
             
             
+            
+            //CSV WITH NONE ENCODING
+            if(((tmx_layer_desc +_tmx_current_layer)->tmx_data+i)->tmx_data_compression == TMX_DATA_COMPRESSION::tmx_data_compression_none && ((tmx_layer_desc +_tmx_current_layer)->tmx_data+i)->tmx_data_encoding == TMX_DATA_ENCODING::tmx_data_encoding_csv){
+                tmx_parse_csv_none_encoding(i, data_content,(tmx_layer_desc +_tmx_current_layer)->tmx_data);
+            }else{
+                std::cout << "ONLY SUPPORTS CSV WITH NONE ENCODING" << std::endl;
+            }
             
             
 

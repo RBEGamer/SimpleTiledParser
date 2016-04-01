@@ -9,3 +9,5 @@ normale text atlase ids für das eine image bauen
 beim layerdata laden passende pointer auf das tile erstellen
 
 beim laden der animationen auch statt id auch das passende tile pointern
+
+debug define erstellen und dann alles ausgeben
