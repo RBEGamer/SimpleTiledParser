@@ -1,5 +1,5 @@
 # SimpleTiledParser
-A simple parser to parse maps from the Tiled Application into your Game.
+A simple parser to parse maps from the TiledMapEditor (http://mapeditor.org/) into your Game.
 
 * Tile animations
 * Tile properties
