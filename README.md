@@ -1,13 +1,11 @@
 # SimpleTiledParser
 A simple parser to parse maps from the Tiled Application into your Game.
 
-Support:
-* Multible animations per tile!
+* Multible animations per tile
 * Properties
 * Only CSV Encoding
-* 
+* No Terrain support
 
-For usage see the main.cpp file!
 
 
 
