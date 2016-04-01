@@ -24,7 +24,11 @@ tmx_map::~tmx_map(){
     delete[] tilesets_desc->tmx_tile_desc->tmx_animation_desc;
     delete[] tilesets_desc->tmx_tile_desc->tmx_properties_desc;
     delete[] tilesets_desc;
-  
+    //cleanup layer desc
+    delete [] layer_desc->tmx_data->tmx_data_field;
+    delete [] layer_desc->tmx_data;
+    delete [] layer_desc->tmx_properties;
+    delete  layer_desc;
     //cleanup map
     delete map_desc;
 }
@@ -68,6 +72,22 @@ void tmx_map::tmx_create_tileset_descriptor(tmx_map::TMX_TILESET_DESC* _tmx_tile
     _tmx_tileset_desc->tmx_tile_desc = 0;
 }
 
+
+void tmx_map::tmx_create_layer_descriptor(tmx_map::TMX_LAYER_DESC* _tmx_layer_desc){
+    _tmx_layer_desc->tmx_data = 0;
+    _tmx_layer_desc->tmx_data_count = 0;
+    _tmx_layer_desc->tmx_height = 0;
+    _tmx_layer_desc->tmx_name = "";
+    _tmx_layer_desc->tmx_offsetx = 0;
+    _tmx_layer_desc->tmx_offsety = 0;
+    _tmx_layer_desc->tmx_opacity = 1;
+    _tmx_layer_desc->tmx_posx = 0;
+    _tmx_layer_desc->tmx_posy = 0;
+    _tmx_layer_desc->tmx_properties = 0;
+    _tmx_layer_desc->tmx_property_count = 0;
+    _tmx_layer_desc->tmx_visible = true;
+    _tmx_layer_desc->tmx_width = 0;
+}
 void tmx_map::tmx_parse_image(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc){
 //read image tag
 //read attr
@@ -459,20 +479,187 @@ void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer,
 
     
     
-    
-    
-    
-    
-
-    
-    
-    
     /*
      TODO BEIM ERSTELLEN DER TILES ALLE TILES MIT ID ERSTELLEN UND DA WO PROPERTIES VORHANDEN SIND DIESE SPEICHERN
-     ZUSÄTZLICH NOCH DEN PIXELAUSCHNITT MIRSPEICHERN
+     ZUSÄTZLICH NOCH DEN PIXELAUSCHNITT MIRSPEICHERN UND ZUSÄTZLICH  PASSENDE TEXTUREATLAS IDS GENERIEREN
      */
     
 }
+
+
+
+void tmx_map::tmx_parse_layers(int _tmx_count_layers, std::string _tmx_xml_buffer, TMX_LAYER_DESC* _tmx_layers_desc){
+
+    // get attr WITH HEIGT !!!
+    //get content
+    //parse properties create new func
+    //count data
+    //alloca data
+    //get data attr unsigned set to default
+    //create datatiles
+    //parse data with length and /n
+    char* layer_attr_start = strstr(_tmx_xml_buffer.c_str(), "<layer ");
+    
+    for (int i = 0; i < _tmx_count_layers; i++) {
+        layer_attr_start = strstr(layer_attr_start, "<layer ");
+        if(layer_attr_start != NULL){
+            layer_attr_start += 7; //remove the <tileset
+            char* layer_attr_end = strstr(layer_attr_start, ">");
+            std::string layer_attr_content = "";
+            layer_attr_content.append(layer_attr_start, layer_attr_end);
+            char* layer_end = strstr(++layer_attr_end, " </layer>");
+            std::string layer_content = ""; //the content of the tileset
+            layer_content.append(layer_attr_end,layer_end);
+            if(layer_content == ""){continue;}
+            
+            
+            //PARSE ATTR
+            
+            //parse arguments
+            char* attr_key_start = 0;
+            char* attr_key_end = 0;
+            std::string attr_value_string = "";
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(layer_attr_content.c_str(), "name=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("name=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_layers_desc+i)->tmx_name = attr_value_string;
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(layer_attr_content.c_str(), "width=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("width=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_layers_desc+i)->tmx_width = atoi(attr_value_string.c_str());
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(layer_attr_content.c_str(), "height=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("height=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_layers_desc+i)->tmx_height = atoi(attr_value_string.c_str());
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            
+            
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(layer_attr_content.c_str(), "opacity=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("opacity=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_layers_desc+i)->tmx_opacity = atof(attr_value_string.c_str());
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(layer_attr_content.c_str(), "offsetx=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("offsetx=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_layers_desc+i)->tmx_offsetx = atoi(attr_value_string.c_str());
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            
+            
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(layer_attr_content.c_str(), "offsety=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("offsety=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    (_tmx_layers_desc+i)->tmx_offsety = atoi(attr_value_string.c_str());
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            
+            //SEARCH ATTRIBITE
+            attr_key_start = strstr(layer_attr_content.c_str(), "visible=\"");
+            if(attr_key_start != nullptr){
+                attr_key_start += strlen("visible=\"");
+                attr_key_end = strstr(attr_key_start,"\" ");
+                if(attr_key_end == NULL){attr_key_end = strstr(attr_key_start,"\"");}
+                if(attr_key_end != NULL){
+                    attr_value_string.append(attr_key_start, attr_key_end);
+                    //DO STUFF
+                    //strcpy(_map_desc->tmx_version, attr_value_string.c_str());
+                    if(attr_value_string == "1"){
+                        (_tmx_layers_desc+i)->tmx_visible = true;
+                    }else if(attr_value_string == "0"){
+                        (_tmx_layers_desc+i)->tmx_visible = false;
+                    }else{
+                        (_tmx_layers_desc+i)->tmx_visible = true;
+                    }
+                }
+            }
+            attr_key_start = 0;
+            attr_key_end = 0;
+            attr_value_string = "";
+            
+            
+        
+        
+            
+            //COUNT PROPS
+            //COUNT DATA
+            //
+    }//end for
+    
+        }
+    
+}
+
+
 
 void tmx_map::tmx_parse_tilesets(int _tmx_count_tilesets, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc){
 
@@ -674,7 +861,7 @@ void tmx_map::tmx_parse_tilesets(int _tmx_count_tilesets, std::string _tmx_xml_b
             //parse layer
             //parse imagelayer
             //objectgroup nur rechecke
-            char rew = 0;
+
         }else{
             break;
         }
@@ -977,12 +1164,37 @@ bool tmx_map::tmx_load_map(const char* _tmx_file_path){
         //now parse the tileset attributes and process the content further
         tmx_parse_tilesets(tileset_array_size, map_content, tilesets_desc);
         map_desc->tmx_tilesetamount =tileset_array_size;
-
+        
+        //now parse all layers
+        const char* layer_counter_itr = strstr(map_content.c_str(), "<layer ");
+        int layer_array_size = 0;
+        while (true) {
+            layer_counter_itr = strstr(layer_counter_itr, "<layer ");
+            if (layer_counter_itr != 0) {
+                layer_counter_itr += 7; //"<tileset "
+                layer_array_size++;
+            }else {
+                break;
+            }
+        }
+        //init all new allocations -> set invalid values set pointer to 0
+        layer_desc = new TMX_LAYER_DESC[layer_array_size]();
+        map_desc->tmx_layeramount = layer_array_size;
+        for (int i = 0; i < layer_array_size; i++) {
+            tmx_create_layer_descriptor((layer_desc+i));
+            //since tiledQt
+            (layer_desc+i)->tmx_height = map_desc->tmx_height;
+            (layer_desc+i)->tmx_width = map_desc->tmx_width;
+            (layer_desc+i)->tmx_posy = 0;
+            (layer_desc+i)->tmx_posy = 0;
+        }
+        tmx_parse_layers(layer_array_size,map_content,layer_desc);
         
         
-        
-        
-        
+        //TODO: check if assetfolder set
+        //TODO: check if all image files exists
+        //TODO: build textureatlas class
+        //TODO: refer tiles to textureclass atlas
         
         
         

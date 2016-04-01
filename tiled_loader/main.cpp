@@ -23,6 +23,8 @@ int main(int argc, const char * argv[]) {
     if(!tiled_map->tmx_load_map("desert-palace.tmx")){
         std::cout << "tmx_load_map fialed check file" << std::endl;
     }
+    
+    
     delete tiled_map;
     return 0;
 }
