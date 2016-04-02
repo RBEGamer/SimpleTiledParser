@@ -37,8 +37,19 @@ class tmx_map {
     enum TMX_MAP_STAGGERINDEX{
         staggerindex_even, staggerindex_odd, invalid_staggerindex
     };
-
-
+    
+    enum TMX_PROPERTY_TYPE{
+    prp_bool, prop_int, prop_string, prop_float, prop_invalid, prop_bool
+    };
+    
+    
+    enum TMX_DATA_ENCODING{
+        tmx_data_encoding_csv, tmx_data_enconding_base64, tmx_dataencoding_invalid
+    };
+    
+    enum TMX_DATA_COMPRESSION{
+        tmx_data_compression_gzip, tmx_data_compression_zlib, tmx_data_compression_none, tmx_data_compression_invalid
+    };
     
     struct TMX_IMAGE_DESC{
         std::string tmx_image_format;
@@ -58,22 +69,8 @@ class tmx_map {
         int tmx_anmimationid;
         int tmx_framecount;
         TMX_FRAME_DESC* tmx_frames;
-
+        
     };
-    
-    enum TMX_PROPERTY_TYPE{
-    prp_bool, prop_int, prop_string, prop_float, prop_invalid, prop_bool
-    };
-    
-    
-    enum TMX_DATA_ENCODING{
-        tmx_data_encoding_csv, tmx_data_enconding_base64, tmx_dataencoding_invalid
-    };
-    
-    enum TMX_DATA_COMPRESSION{
-        tmx_data_compression_gzip, tmx_data_compression_zlib, tmx_data_compression_none, tmx_data_compression_invalid
-    };
-    
 
     struct TMX_MAP_DESC {
         char tmx_version[3];
@@ -100,11 +97,17 @@ class tmx_map {
     
     
     struct TMX_TILE_DESC{
-        int tmx_id;
+        int tmx_id; //this is the id in the tileset
+        int tmx_gridid; //this is the global id used in the datagrid
         TMX_ANIMATION_DESC* tmx_animation_desc;
         TMX_PROPERTYS_DESC* tmx_properties_desc;
         int tmx_animation_count;
         int tmx_properties_count;
+        
+        int tmx_start_pixel_offset_x;
+        int tmx_start_pixel_offset_y;
+        int* tmx_tile_width;
+        int* tmx_tile_height;
     };
     
     
@@ -120,6 +123,7 @@ class tmx_map {
         int tmx_margin;
         int tmx_tilecount;
         int tmx_columns;
+        int tmx_rows;
         TMX_IMAGE_DESC tmx_image_desc;
         TMX_TILE_DESC* tmx_tile_desc;
     
