@@ -22,6 +22,12 @@ tmx_manager& tmx_manager::getManagerInstance(){
     static tmx_manager* curr_instance = NULL;
     if(curr_instance == NULL){
     //DO OPENGL INIT HERE
+        glfwInit();
+        GLFWwindow* glfw_window = NULL;
+        //TODO ADD INI PARSER
+        glfw_window = glfwCreateWindow(800, 480, "Tiled Loader", NULL, NULL);
+        
+        
         curr_instance =new tmx_manager();
         if(curr_instance != NULL){
         std::cout << "TMX MANAGER INSTANCE CREATED" << std::endl;
@@ -41,6 +47,6 @@ void tmx_manager::destroyTmxManager(){
 
     delete curr_instance;
     std::cout << "TMX MANAGER INSTANCE DELTED" << std::endl;
-    
+    glfwTerminate();
     //SHUTDOWN
 }

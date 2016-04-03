@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
-
+#include "../glfw/include/GLFW/glfw3.h"
 
 class tmx_manager{
 public:

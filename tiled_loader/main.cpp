@@ -4,13 +4,13 @@
 //
 //  Created by Marcel Ochsendorf on 29.03.16.
 //  Copyright © 2016 Marcel Ochsendorf. All rights reserved.
-//
+// https://www.youtube.com/watch?v=9ka5bgHnHyg
 
 #include <iostream>
 #include "tmx_manager.hpp"
 #include "tmx_map.hpp"
 
-#include "../glfw/include/GLFW/glfw3.h"
+
 
 
 

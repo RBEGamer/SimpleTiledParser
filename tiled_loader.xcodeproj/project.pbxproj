@@ -184,6 +184,13 @@
 			remoteGlobalIDString = 262BAF25FA974C5C84DD0D81;
 			remoteInfo = windows;
 		};
+		1FF64A571CB1AB7A001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E543748DBF34488AA771FA77;
+			remoteInfo = glfw;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -311,6 +318,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1FF64A581CB1AB7A001B9BB1 /* PBXTargetDependency */,
 			);
 			name = tiled_loader;
 			productName = tiled_loader;
@@ -552,6 +560,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FF64A581CB1AB7A001B9BB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = glfw;
+			targetProxy = 1FF64A571CB1AB7A001B9BB1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1FC358A31CAB06EE0023AE10 /* Debug */ = {
