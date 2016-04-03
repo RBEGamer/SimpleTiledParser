@@ -270,6 +270,16 @@ void tmx_map::tmx_parse_animation(int _tmx_current_tile, std::string _tmx_xml_bu
                                     frame_value_string.append(frame_key_start, frame_key_end);
                                     //DO STUFF
                         (((tmx_tile_desc + _tmx_current_tile)->tmx_animation_desc+j)->tmx_frames+i)->tmx_tileid = atoi(frame_value_string.c_str());
+                                
+                                //LINK TILE
+                                    for (int l = 0; l <  (tmx_tile_desc + _tmx_current_tile)->tmx_refered_tileset->tmx_tilecount; l++) {
+                                        if(((tmx_tile_desc + _tmx_current_tile)->tmx_refered_tileset->tmx_tile_desc+l)->tmx_gridid == (((tmx_tile_desc + _tmx_current_tile)->tmx_animation_desc+j)->tmx_frames+i)->tmx_tileid){
+                                            (((tmx_tile_desc + _tmx_current_tile)->tmx_animation_desc+j)->tmx_frames+i)->tmx_frametile = ((tmx_tile_desc + _tmx_current_tile)->tmx_refered_tileset->tmx_tile_desc+l);
+                                        }
+                                    }
+
+                                
+                                
                                 }
                             }
                             frame_key_start = 0;

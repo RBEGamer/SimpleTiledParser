@@ -26,7 +26,7 @@ class tmx_map {
     struct TMX_TILESET_DESC;
     struct TMX_LAYER_DESC;
     struct TMX_DATA_DESC;
-    
+    struct TMX_TILE_DESC;
     
     
     
@@ -71,6 +71,8 @@ class tmx_map {
         int tmx_framepos;
         int tmx_duration;
         int tmx_tileid;
+        TMX_TILE_DESC* tmx_frametile;
+        
     };
     
     struct TMX_ANIMATION_DESC{
