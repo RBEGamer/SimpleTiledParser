@@ -9,8 +9,8 @@ Currently not supported :
 * Only CSV Encoding with no compression !
 * No Terrain support
 
-
-Best practise is to place animated tiles in a different layer!
+Files : * tmx_map_loader.cpp
+        * tmx_map_loader_hpp
 
 
 # INI File Parser
