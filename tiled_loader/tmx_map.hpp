@@ -18,9 +18,17 @@
 #ifdef HAVE_MALLOC_H
 #include <malloc.h>
 #endif
-
+#include "tmx_helper_functions.hpp"
 class tmx_map {
    public:
+    
+    
+    struct TMX_TILESET_DESC;
+    struct TMX_LAYER_DESC;
+    struct TMX_DATA_DESC;
+    
+    
+    
     
     enum TMX_MAP_ORIENTATION{
         orthogonal, isometric, staggerred, hexagonal, invalid_orientation
@@ -96,18 +104,22 @@ class tmx_map {
     };
     
     
+    
     struct TMX_TILE_DESC{
+        TMX_TILESET_DESC* tmx_refered_tileset;
         int tmx_id; //this is the id in the tileset
         int tmx_gridid; //this is the global id used in the datagrid
         TMX_ANIMATION_DESC* tmx_animation_desc;
         TMX_PROPERTYS_DESC* tmx_properties_desc;
         int tmx_animation_count;
         int tmx_properties_count;
-        
+        //START PIXEL POINT IN THE IMAGE
         int tmx_start_pixel_offset_x;
         int tmx_start_pixel_offset_y;
         int* tmx_tile_width;
         int* tmx_tile_height;
+        
+        //TODO ADD REFERENZE TO TEXTUREATLAS TEXTURE
     };
     
     
@@ -126,11 +138,16 @@ class tmx_map {
         int tmx_rows;
         TMX_IMAGE_DESC tmx_image_desc;
         TMX_TILE_DESC* tmx_tile_desc;
+        TMX_MAP_DESC* tmx_map_description;
     
     };
-    
+
     struct TMX_DATA_FIELD{
         int tmx_tileid;
+        int tmx_pos_x;
+        int tmx_pos_y;
+        TMX_TILE_DESC* tmx_tile;
+        TMX_DATA_DESC* tmx_data_desc;
         //TODO ADD refered TEXTURE_ATLAS_ID*
     };
     
@@ -138,6 +155,8 @@ class tmx_map {
         TMX_DATA_ENCODING tmx_data_encoding;
         TMX_DATA_COMPRESSION tmx_data_compression;
         TMX_DATA_FIELD* tmx_data_field;
+        TMX_LAYER_DESC* tmx_layer;
+        int tmx_data_field_count;
     };
     
     
@@ -151,13 +170,11 @@ class tmx_map {
         bool tmx_visible;
         int tmx_offsetx;
         int tmx_offsety;
-        
         int tmx_property_count;
         TMX_PROPERTYS_DESC* tmx_properties;
-        
         int tmx_data_count;
         TMX_DATA_DESC* tmx_data;
-        
+        TMX_MAP_DESC* tmx_map;
     };
     
     

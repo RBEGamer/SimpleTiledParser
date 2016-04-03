@@ -19,11 +19,21 @@ int main(int argc, const char * argv[]) {
     
     
     tmx_map* tiled_map = new tmx_map();
-    tiled_map->tilesets_folder_path = "Assets/";
+ 
     if(!tiled_map->tmx_load_map("desert-palace.tmx")){
         std::cout << "tmx_load_map fialed check file" << std::endl;
     }
     
+    
+    //TODO    tiled_map->tilesets_folder_path = "Assets/"; in textureloader einfügen
+    
+    /*
+     TEXTURELOADER FOR OPENGL
+     -> normale und atlanten
+     ->recursiv durch alle ordner
+     eine func bauen die alle maps entgegennimmt und alle images passend wenn in tileset vorhanden als atlas speichert
+     
+     */
     
     delete tiled_map;
     return 0;

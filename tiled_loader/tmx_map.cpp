@@ -15,9 +15,6 @@ tmx_map::tmx_map(){
 
 }
 
-
-
-
 tmx_map::~tmx_map(){
     //cleanup tileset desc
     delete[] tilesets_desc->tmx_tile_desc->tmx_animation_desc->tmx_frames;
@@ -33,26 +30,24 @@ tmx_map::~tmx_map(){
     delete map_desc;
 }
 
-
-
 void tmx_map::tmx_create_map_descriptor(tmx_map::TMX_MAP_DESC* _tmx_map_desc){
     strcpy(_tmx_map_desc->tmx_version , "0.0");
     _tmx_map_desc->tmx_orientation = TMX_MAP_ORIENTATION::invalid_orientation;
     _tmx_map_desc->tmx_renderorder = TMX_MAP_RENDERORDER::invalid_renderorder;
-    _tmx_map_desc->tmx_width = -1;
-    _tmx_map_desc->tmx_height = -1;
-    _tmx_map_desc->tmx_tilewidth = -1;
-    _tmx_map_desc->tmx_tileheight = -1;
-    _tmx_map_desc->tmx_hexsidelenght = -1;
+    _tmx_map_desc->tmx_width = 0;
+    _tmx_map_desc->tmx_height = 0;
+    _tmx_map_desc->tmx_tilewidth = 0;
+    _tmx_map_desc->tmx_tileheight = 0;
+    _tmx_map_desc->tmx_hexsidelenght = 0;
     _tmx_map_desc->tmx_staggeraxis = TMX_MAP_STAGGERAXIS::invalid_staggeraxis;
     _tmx_map_desc->tmx_staggerindex = TMX_MAP_STAGGERINDEX::invalid_staggerindex;
-    _tmx_map_desc->tmx_backgroundcolor = -1;
-    _tmx_map_desc->tmx_nextobjectid = -1;
+    _tmx_map_desc->tmx_backgroundcolor = 0;
+    _tmx_map_desc->tmx_nextobjectid = 0;
 }
-//\"
+
 void tmx_map::tmx_create_image_desc(tmx_map::TMX_IMAGE_DESC* _tmx_image_desc){
-    _tmx_image_desc->tmx_height = -1;
-    _tmx_image_desc->tmx_width = -1;
+    _tmx_image_desc->tmx_height = 0;
+    _tmx_image_desc->tmx_width = 0;
     _tmx_image_desc->tmx_image_format = "";
     _tmx_image_desc->tmx_image_source = "";
     _tmx_image_desc->tmx_trans_color = 0;
@@ -72,7 +67,6 @@ void tmx_map::tmx_create_tileset_descriptor(tmx_map::TMX_TILESET_DESC* _tmx_tile
     tmx_create_image_desc(&_tmx_tileset_desc->tmx_image_desc);
     _tmx_tileset_desc->tmx_tile_desc = 0;
 }
-
 
 void tmx_map::tmx_create_layer_descriptor(tmx_map::TMX_LAYER_DESC* _tmx_layer_desc){
     _tmx_layer_desc->tmx_data = 0;
@@ -191,7 +185,6 @@ void tmx_map::tmx_parse_image(int _tmx_curr_tileset, std::string _tmx_xml_buffer
     attr_key_end = 0;
     attr_value_string = "";
 }
-
 
 void tmx_map::tmx_parse_animation(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_TILE_DESC* tmx_tile_desc){
 /*
@@ -515,9 +508,6 @@ void tmx_map::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buf
     }
 }
 
-
-
-
 void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tileset_desc){
 //count special tiles
     
@@ -542,8 +532,9 @@ void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer,
     
     
     //generate all tiles
-    //init tile
     for (int j = 0; j < (_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tilecount; j++) {
+        ((_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tile_desc+j)->tmx_refered_tileset = (_tmx_tileset_desc + _tmx_curr_tileset);
+        
         ((_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tile_desc+j)->tmx_id = j;
         ((_tmx_tileset_desc + _tmx_curr_tileset)->tmx_tile_desc+j)->tmx_gridid = j + (_tmx_tileset_desc + _tmx_curr_tileset)->tmx_firstgid;
         
@@ -616,17 +607,62 @@ void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer,
         
         
     }
-    /*
-     TODO BEIM ERSTELLEN DER TILES ALLE TILES MIT ID ERSTELLEN UND DA WO PROPERTIES VORHANDEN SIND DIESE SPEICHERN
-     ZUSÄTZLICH NOCH DEN PIXELAUSCHNITT MIRSPEICHERN UND ZUSÄTZLICH  PASSENDE TEXTUREATLAS IDS GENERIEREN
-     */
+
     
 }
 
 void tmx_map::tmx_parse_csv_none_encoding(int _tmx_curr_data, std::string _tmx_xml_buffer, TMX_DATA_DESC* _tmx_data_desc){
-    //alle tiles erstellen
-    //ZUERST SCHAUEN OB CSV UND NONE COMPRESSSION
+   
+    replaceAll(_tmx_xml_buffer, "\n" , ""); //replace the new line charakter
+    _tmx_xml_buffer.append(","); //append a , to iterate through the last tile
+    _tmx_xml_buffer.insert(0, ",");
+    
+    const char* comma_counter_itr = strstr(_tmx_xml_buffer.c_str(), ",");
+    int comma_array_size = 0;
+    while (true) {
+        comma_counter_itr = strstr(comma_counter_itr, ",");
+        if (comma_counter_itr != 0) {
+            comma_counter_itr += 1; //"<tileset "
+            comma_array_size++;
+        }else {
+            break;
+        }
+    }
+
+    
+    
+    (_tmx_data_desc + _tmx_curr_data)->tmx_data_field_count = comma_array_size;
+    (_tmx_data_desc + _tmx_curr_data)->tmx_data_field = new TMX_DATA_FIELD[comma_array_size]();
+    
     //func parse csv charpointer rein und dann /n entfernen ,zählen rows cols berechenn array bauen nach komma trennen value atoien  in array struct rein fertig
+    char* csv_attr_start = strstr(_tmx_xml_buffer.c_str(), ",");
+    for (int i = 0;  i < comma_array_size-1; i++) {
+        //sort init
+        ((_tmx_data_desc + _tmx_curr_data)->tmx_data_field+i)->tmx_tile = NULL;
+        ((_tmx_data_desc + _tmx_curr_data)->tmx_data_field+i)->tmx_pos_y =  (int)(i / (_tmx_data_desc + _tmx_curr_data)->tmx_layer->tmx_width);
+        ((_tmx_data_desc + _tmx_curr_data)->tmx_data_field+i)->tmx_pos_x = (int)(i % (_tmx_data_desc + _tmx_curr_data)->tmx_layer->tmx_width);
+        ((_tmx_data_desc + _tmx_curr_data)->tmx_data_field+i)->tmx_tileid = 0;
+        ((_tmx_data_desc + _tmx_curr_data)->tmx_data_field+i)->tmx_data_desc = (_tmx_data_desc + _tmx_curr_data);
+        
+       // std::cout << "x : "  << ((_tmx_data_desc + _tmx_curr_data)->tmx_data_field+i)->tmx_pos_x << " y: " << ((_tmx_data_desc + _tmx_curr_data)->tmx_data_field+i)->tmx_pos_y << std::endl;
+        
+        //get tile id
+        csv_attr_start = strstr(csv_attr_start, ",");
+        if(csv_attr_start != NULL){
+            csv_attr_start += 1; //remove the <tileset
+            char* csv_attr_end = strstr(csv_attr_start, ",");
+            std::string csv_attr_content = "";
+            csv_attr_content.append(csv_attr_start, csv_attr_end);
+            if(csv_attr_content != ""){
+                 ((_tmx_data_desc + _tmx_curr_data)->tmx_data_field+i)->tmx_tileid = atoi(csv_attr_content.c_str());
+            }
+            }
+    }
+    
+    
+  
+  
+    //wenn id 0 ist dann auf NULL refren
 }
 
 void tmx_map::tmx_parse_data(int _tmx_current_layer, std::string _tmx_xml_buffer, TMX_LAYER_DESC* tmx_layer_desc){
@@ -654,6 +690,11 @@ void tmx_map::tmx_parse_data(int _tmx_current_layer, std::string _tmx_xml_buffer
     char* data_attr_start = strstr(_tmx_xml_buffer.c_str(), "<data ");
     
     for (int i = 0; i < data_array_size; i++) {
+        
+        ((tmx_layer_desc +_tmx_current_layer)->tmx_data+i)->tmx_layer = (tmx_layer_desc +_tmx_current_layer);
+        
+        
+        
         data_attr_start = strstr(data_attr_start, "<data ");
         if(data_attr_start != NULL){
             data_attr_start += 6; //remove the <tileset
@@ -1124,8 +1165,7 @@ void tmx_map::tmx_parse_tilesets(int _tmx_count_tilesets, std::string _tmx_xml_b
         }
         
     }
-    
-    int fd = 0;
+
 }
 
 std::string tmx_map::tmx_parse_map_desc(char* _tmx_xml_buffer, tmx_map::TMX_MAP_DESC* _map_desc){
@@ -1419,6 +1459,9 @@ bool tmx_map::tmx_load_map(const char* _tmx_file_path){
         tmx_parse_tilesets(tileset_array_size, map_content, tilesets_desc);
         map_desc->tmx_tilesetamount =tileset_array_size;
         
+        for (int i = 0; i < tileset_array_size; i++) {
+            (tilesets_desc + i)->tmx_map_description = map_desc;
+        }
         //now parse all layers
         const char* layer_counter_itr = strstr(map_content.c_str(), "<layer ");
         int layer_array_size = 0;
@@ -1441,8 +1484,48 @@ bool tmx_map::tmx_load_map(const char* _tmx_file_path){
             (layer_desc+i)->tmx_width = map_desc->tmx_width;
             (layer_desc+i)->tmx_posy = 0;
             (layer_desc+i)->tmx_posy = 0;
+            (layer_desc+i)->tmx_map = map_desc;
         }
         tmx_parse_layers(layer_array_size,map_content,layer_desc);
+        
+        //LAST STEP OF LOAD LINK TILESETS
+        
+        
+        //LINK TILES
+        //find tileset
+        //find tile in tileset
+        TMX_TILE_DESC* last_tile = NULL;
+        for (int i = 0; i < map_desc->tmx_layeramount; i++) {
+            for (int j = 0; j < (layer_desc+i)->tmx_data_count; j++) {
+                for (int k = 0; k < ((layer_desc+i)->tmx_data+j)->tmx_data_field_count; k++) {
+                    //IF THE THE LAST ID WAS THE SAME DONT SEARCH
+                    if((((layer_desc+i)->tmx_data+j)->tmx_data_field+k)->tmx_tileid == 0){
+                        last_tile = NULL;
+                        (((layer_desc+i)->tmx_data+j)->tmx_data_field+k)->tmx_tile = NULL;
+                        continue;
+                    }
+                    if(last_tile != NULL && (((layer_desc+i)->tmx_data+j)->tmx_data_field+k)->tmx_tileid == last_tile->tmx_gridid){
+                        (((layer_desc+i)->tmx_data+j)->tmx_data_field+k)->tmx_tile =last_tile;
+                    }else{
+                    //SEARCH IN TILESETS
+                    
+                        for (int l = 0; l < map_desc->tmx_tilesetamount; l++) {
+                            for (int m = 0; m < (tilesets_desc+l)->tmx_tilecount; m++) {
+                                if(((tilesets_desc+l)->tmx_tile_desc+l)->tmx_gridid == (((layer_desc+i)->tmx_data+j)->tmx_data_field+k)->tmx_tileid){
+                                    last_tile =((tilesets_desc+l)->tmx_tile_desc+l);
+                                    (((layer_desc+i)->tmx_data+j)->tmx_data_field+k)->tmx_tile = last_tile;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        
+        
         
         
         //TODO: check if assetfolder set

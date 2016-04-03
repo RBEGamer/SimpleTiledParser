@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F56F6591CB0975B00C3D37A /* tmx_helper_functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F56F6571CB0975B00C3D37A /* tmx_helper_functions.cpp */; };
 		1FC358A21CAB06EE0023AE10 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FC358A11CAB06EE0023AE10 /* main.cpp */; };
 		1FC358AA1CAB0BA00023AE10 /* tmx_map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FC358A81CAB0BA00023AE10 /* tmx_map.cpp */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		1F56F6561CAE077B00C3D37A /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		1F56F6571CB0975B00C3D37A /* tmx_helper_functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmx_helper_functions.cpp; sourceTree = "<group>"; };
+		1F56F6581CB0975B00C3D37A /* tmx_helper_functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_helper_functions.hpp; sourceTree = "<group>"; };
 		1FC3589E1CAB06EE0023AE10 /* tiled_loader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tiled_loader; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC358A11CAB06EE0023AE10 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1FC358A81CAB0BA00023AE10 /* tmx_map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmx_map.cpp; sourceTree = "<group>"; };
@@ -65,6 +68,8 @@
 				1FC358A81CAB0BA00023AE10 /* tmx_map.cpp */,
 				1FC358A91CAB0BA00023AE10 /* tmx_map.hpp */,
 				1F56F6561CAE077B00C3D37A /* TODO */,
+				1F56F6571CB0975B00C3D37A /* tmx_helper_functions.cpp */,
+				1F56F6581CB0975B00C3D37A /* tmx_helper_functions.hpp */,
 			);
 			path = tiled_loader;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			files = (
 				1FC358AA1CAB0BA00023AE10 /* tmx_map.cpp in Sources */,
 				1FC358A21CAB06EE0023AE10 /* main.cpp in Sources */,
+				1F56F6591CB0975B00C3D37A /* tmx_helper_functions.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
