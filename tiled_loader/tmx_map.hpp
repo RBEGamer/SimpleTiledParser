@@ -142,6 +142,12 @@ class tmx_map {
         TMX_TILE_DESC* tmx_tile_desc;
         TMX_MAP_DESC* tmx_map_description;
     
+        int tmx_normal_tiles_count;
+        TMX_TILE_DESC* tmx_normal_tiles;
+        int tmx_property_tiles_count;
+        TMX_TILE_DESC* tmx_property_tiles;
+        int tmx_animated_tiles_count;
+        TMX_TILE_DESC* tmx_animated_tiles;
     };
 
     struct TMX_DATA_FIELD{
@@ -180,6 +186,8 @@ class tmx_map {
     };
     
     
+    
+    //TODO all 3 in one struct and a delte function
     
     //CURRENT MAP
     TMX_MAP_DESC* map_desc;

@@ -17,7 +17,7 @@ void replaceAll(std::string& str, const std::string& from, const std::string& to
     size_t start_pos = 0;
     while((start_pos = str.find(from, start_pos)) != std::string::npos) {
         str.replace(start_pos, from.length(), to);
-        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
+        start_pos += to.length();
     }
 }
 
@@ -30,4 +30,12 @@ bool replace(std::string& str, const std::string& from, const std::string& to) {
         return false;
     str.replace(start_pos, from.length(), to);
     return true;
+}
+
+long getFileSize(FILE *inFile){
+    long fileSize = 0;
+    fseek(inFile,0,SEEK_END);
+    fileSize=ftell(inFile);
+    fseek(inFile,0,SEEK_SET);
+    return fileSize;
 }

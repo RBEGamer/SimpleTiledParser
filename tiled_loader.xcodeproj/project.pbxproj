@@ -7,31 +7,209 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F34B4421CB1A1B800819929 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F56F65A1CB0BE4400C3D37A /* OpenGL.framework */; };
 		1F56F6591CB0975B00C3D37A /* tmx_helper_functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F56F6571CB0975B00C3D37A /* tmx_helper_functions.cpp */; };
+		1F56F66B1CB16CF500C3D37A /* tmx_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F56F6691CB16CF500C3D37A /* tmx_manager.cpp */; };
 		1FC358A21CAB06EE0023AE10 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FC358A11CAB06EE0023AE10 /* main.cpp */; };
 		1FC358AA1CAB0BA00023AE10 /* tmx_map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FC358A81CAB0BA00023AE10 /* tmx_map.cpp */; };
+		1FF649E81CB1A4AA001B9BB1 /* libglfw.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF649E71CB1A4AA001B9BB1 /* libglfw.3.1.dylib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1FF64A081CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CF93DCBF64F5441A89FC06AB;
+			remoteInfo = glfw;
+		};
+		1FF64A0A1CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7488E6BCE5EC4DC286A3A4A0;
+			remoteInfo = boing;
+		};
+		1FF64A0C1CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5FDF3C3A8A9240A4806CB89C;
+			remoteInfo = gears;
+		};
+		1FF64A0E1CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ABD8E0FCBFE04B569030D2E0;
+			remoteInfo = heightmap;
+		};
+		1FF64A101CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 24332D95B70749AEB0789378;
+			remoteInfo = particles;
+		};
+		1FF64A121CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8C56744F8B504845AC441D6B;
+			remoteInfo = simple;
+		};
+		1FF64A141CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 47620A0EC2D24BCF8327875D;
+			remoteInfo = splitview;
+		};
+		1FF64A161CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 38F1EA55D36045EB982A1857;
+			remoteInfo = wave;
+		};
+		1FF64A181CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6AC1488C7C07467CBBBAD36A;
+			remoteInfo = clipboard;
+		};
+		1FF64A1A1CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 87BB67FD136644A7829E8E08;
+			remoteInfo = cursor;
+		};
+		1FF64A1C1CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C90B62E6BD64457A1CBCD53;
+			remoteInfo = empty;
+		};
+		1FF64A1E1CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ED79547FA1344F88BEDF5112;
+			remoteInfo = events;
+		};
+		1FF64A201CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7DDFD03DACD1402F8A068943;
+			remoteInfo = gamma;
+		};
+		1FF64A221CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C38E51AF00F543D183E603F5;
+			remoteInfo = glfwinfo;
+		};
+		1FF64A241CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F5EA202C03D7422D85712BBB;
+			remoteInfo = iconify;
+		};
+		1FF64A261CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 09AE032248F34A32AC2F900D;
+			remoteInfo = joysticks;
+		};
+		1FF64A281CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DEDF9A36ECED4C14A1021AF2;
+			remoteInfo = monitors;
+		};
+		1FF64A2A1CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A7ED075208CC4D49A08E1809;
+			remoteInfo = msaa;
+		};
+		1FF64A2C1CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 612CC97FB93B4D4A84AC9226;
+			remoteInfo = reopen;
+		};
+		1FF64A2E1CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 27967E5157D9495EA4827811;
+			remoteInfo = sharing;
+		};
+		1FF64A301CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C1DB047D2AA4CEBA6317AD1;
+			remoteInfo = tearing;
+		};
+		1FF64A321CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F465AAEB29154F7A9819F2F2;
+			remoteInfo = threads;
+		};
+		1FF64A341CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 734292062D484D1799C48F22;
+			remoteInfo = title;
+		};
+		1FF64A361CB1A4D6001B9BB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 262BAF25FA974C5C84DD0D81;
+			remoteInfo = windows;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		1FC3589C1CAB06EE0023AE10 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = usr/share/man/man1;
+			dstSubfolderSpec = 16;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1F56F6561CAE077B00C3D37A /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		1F56F6571CB0975B00C3D37A /* tmx_helper_functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmx_helper_functions.cpp; sourceTree = "<group>"; };
 		1F56F6581CB0975B00C3D37A /* tmx_helper_functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_helper_functions.hpp; sourceTree = "<group>"; };
+		1F56F65A1CB0BE4400C3D37A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		1F56F6691CB16CF500C3D37A /* tmx_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmx_manager.cpp; sourceTree = "<group>"; };
+		1F56F66A1CB16CF500C3D37A /* tmx_manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_manager.hpp; sourceTree = "<group>"; };
 		1FC3589E1CAB06EE0023AE10 /* tiled_loader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tiled_loader; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC358A11CAB06EE0023AE10 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1FC358A81CAB0BA00023AE10 /* tmx_map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmx_map.cpp; sourceTree = "<group>"; };
 		1FC358A91CAB0BA00023AE10 /* tmx_map.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_map.hpp; sourceTree = "<group>"; };
+		1FF649E71CB1A4AA001B9BB1 /* libglfw.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.1.dylib; path = glfw/src/Debug/libglfw.3.1.dylib; sourceTree = "<group>"; };
+		1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GLFW.xcodeproj; path = glfw/GLFW.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,15 +217,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FF649E81CB1A4AA001B9BB1 /* libglfw.3.1.dylib in Frameworks */,
+				1F34B4421CB1A1B800819929 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F56F65E1CB0C15D00C3D37A /* MAC_FRAMEWORKS */ = {
+			isa = PBXGroup;
+			children = (
+				1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */,
+				1FF649E71CB1A4AA001B9BB1 /* libglfw.3.1.dylib */,
+				1F56F65A1CB0BE4400C3D37A /* OpenGL.framework */,
+			);
+			name = MAC_FRAMEWORKS;
+			sourceTree = "<group>";
+		};
 		1FC358951CAB06EE0023AE10 = {
 			isa = PBXGroup;
 			children = (
+				1F56F65E1CB0C15D00C3D37A /* MAC_FRAMEWORKS */,
 				1FC358A01CAB06EE0023AE10 /* tiled_loader */,
 				1FC3589F1CAB06EE0023AE10 /* Products */,
 			);
@@ -67,11 +258,43 @@
 				1FC358A11CAB06EE0023AE10 /* main.cpp */,
 				1FC358A81CAB0BA00023AE10 /* tmx_map.cpp */,
 				1FC358A91CAB0BA00023AE10 /* tmx_map.hpp */,
-				1F56F6561CAE077B00C3D37A /* TODO */,
 				1F56F6571CB0975B00C3D37A /* tmx_helper_functions.cpp */,
 				1F56F6581CB0975B00C3D37A /* tmx_helper_functions.hpp */,
+				1F56F6691CB16CF500C3D37A /* tmx_manager.cpp */,
+				1F56F66A1CB16CF500C3D37A /* tmx_manager.hpp */,
 			);
 			path = tiled_loader;
+			sourceTree = "<group>";
+		};
+		1FF649EA1CB1A4D6001B9BB1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FF64A091CB1A4D6001B9BB1 /* libglfw.dylib */,
+				1FF64A0B1CB1A4D6001B9BB1 /* boing */,
+				1FF64A0D1CB1A4D6001B9BB1 /* gears */,
+				1FF64A0F1CB1A4D6001B9BB1 /* heightmap */,
+				1FF64A111CB1A4D6001B9BB1 /* particles */,
+				1FF64A131CB1A4D6001B9BB1 /* simple */,
+				1FF64A151CB1A4D6001B9BB1 /* splitview */,
+				1FF64A171CB1A4D6001B9BB1 /* wave */,
+				1FF64A191CB1A4D6001B9BB1 /* clipboard */,
+				1FF64A1B1CB1A4D6001B9BB1 /* cursor */,
+				1FF64A1D1CB1A4D6001B9BB1 /* empty */,
+				1FF64A1F1CB1A4D6001B9BB1 /* events */,
+				1FF64A211CB1A4D6001B9BB1 /* gamma */,
+				1FF64A231CB1A4D6001B9BB1 /* glfwinfo */,
+				1FF64A251CB1A4D6001B9BB1 /* iconify */,
+				1FF64A271CB1A4D6001B9BB1 /* joysticks */,
+				1FF64A291CB1A4D6001B9BB1 /* monitors */,
+				1FF64A2B1CB1A4D6001B9BB1 /* msaa */,
+				1FF64A2D1CB1A4D6001B9BB1 /* reopen */,
+				1FF64A2F1CB1A4D6001B9BB1 /* sharing */,
+				1FF64A311CB1A4D6001B9BB1 /* tearing */,
+				1FF64A331CB1A4D6001B9BB1 /* threads */,
+				1FF64A351CB1A4D6001B9BB1 /* title */,
+				1FF64A371CB1A4D6001B9BB1 /* windows */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,12 +341,203 @@
 			mainGroup = 1FC358951CAB06EE0023AE10;
 			productRefGroup = 1FC3589F1CAB06EE0023AE10 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1FF649EA1CB1A4D6001B9BB1 /* Products */;
+					ProjectRef = 1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1FC3589D1CAB06EE0023AE10 /* tiled_loader */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1FF64A091CB1A4D6001B9BB1 /* libglfw.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			name = libglfw.dylib;
+			path = libglfw.3.1.dylib;
+			remoteRef = 1FF64A081CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A0B1CB1A4D6001B9BB1 /* boing */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = boing;
+			path = boing.app;
+			remoteRef = 1FF64A0A1CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A0D1CB1A4D6001B9BB1 /* gears */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = gears;
+			path = gears.app;
+			remoteRef = 1FF64A0C1CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A0F1CB1A4D6001B9BB1 /* heightmap */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = heightmap;
+			path = heightmap.app;
+			remoteRef = 1FF64A0E1CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A111CB1A4D6001B9BB1 /* particles */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = particles;
+			path = particles.app;
+			remoteRef = 1FF64A101CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A131CB1A4D6001B9BB1 /* simple */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = simple;
+			path = simple.app;
+			remoteRef = 1FF64A121CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A151CB1A4D6001B9BB1 /* splitview */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = splitview;
+			path = splitview.app;
+			remoteRef = 1FF64A141CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A171CB1A4D6001B9BB1 /* wave */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = wave;
+			path = wave.app;
+			remoteRef = 1FF64A161CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A191CB1A4D6001B9BB1 /* clipboard */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = clipboard;
+			remoteRef = 1FF64A181CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A1B1CB1A4D6001B9BB1 /* cursor */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = cursor;
+			remoteRef = 1FF64A1A1CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A1D1CB1A4D6001B9BB1 /* empty */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = empty;
+			path = empty.app;
+			remoteRef = 1FF64A1C1CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A1F1CB1A4D6001B9BB1 /* events */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = events;
+			remoteRef = 1FF64A1E1CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A211CB1A4D6001B9BB1 /* gamma */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = gamma;
+			remoteRef = 1FF64A201CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A231CB1A4D6001B9BB1 /* glfwinfo */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = glfwinfo;
+			remoteRef = 1FF64A221CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A251CB1A4D6001B9BB1 /* iconify */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = iconify;
+			remoteRef = 1FF64A241CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A271CB1A4D6001B9BB1 /* joysticks */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = joysticks;
+			remoteRef = 1FF64A261CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A291CB1A4D6001B9BB1 /* monitors */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = monitors;
+			remoteRef = 1FF64A281CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A2B1CB1A4D6001B9BB1 /* msaa */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = msaa;
+			remoteRef = 1FF64A2A1CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A2D1CB1A4D6001B9BB1 /* reopen */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = reopen;
+			remoteRef = 1FF64A2C1CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A2F1CB1A4D6001B9BB1 /* sharing */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = sharing;
+			path = sharing.app;
+			remoteRef = 1FF64A2E1CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A311CB1A4D6001B9BB1 /* tearing */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = tearing;
+			path = tearing.app;
+			remoteRef = 1FF64A301CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A331CB1A4D6001B9BB1 /* threads */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = threads;
+			path = threads.app;
+			remoteRef = 1FF64A321CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A351CB1A4D6001B9BB1 /* title */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = title;
+			path = title.app;
+			remoteRef = 1FF64A341CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF64A371CB1A4D6001B9BB1 /* windows */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = windows;
+			path = windows.app;
+			remoteRef = 1FF64A361CB1A4D6001B9BB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1FC3589A1CAB06EE0023AE10 /* Sources */ = {
@@ -133,6 +547,7 @@
 				1FC358AA1CAB0BA00023AE10 /* tmx_map.cpp in Sources */,
 				1FC358A21CAB06EE0023AE10 /* main.cpp in Sources */,
 				1F56F6591CB0975B00C3D37A /* tmx_helper_functions.cpp in Sources */,
+				1F56F66B1CB16CF500C3D37A /* tmx_manager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +639,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = /usr/include/malloc;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)/tiled_loader",
+					"$(PROJECT_DIR)/glfw/src/Debug",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -231,6 +652,12 @@
 		1FC358A71CAB06EE0023AE10 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)/tiled_loader",
+					"$(PROJECT_DIR)/glfw/src/Debug",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
