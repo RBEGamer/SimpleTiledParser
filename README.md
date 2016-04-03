@@ -9,7 +9,7 @@ Currently not supported :
 * Only CSV Encoding with no compression !
 * No Terrain support
 
-Needed files :  tmx_map_loader.cpp,  tmx_map_loader_hpp
+Needed files :  tmx_map_loader.cpp,  tmx_map_loader_hpp, tmx_helper_functions.cpp, tmx_helper_functions.hpp
 
 
 # INI File Parser
