@@ -11,8 +11,9 @@
 		1F56F6591CB0975B00C3D37A /* tmx_helper_functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F56F6571CB0975B00C3D37A /* tmx_helper_functions.cpp */; };
 		1F56F66B1CB16CF500C3D37A /* tmx_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F56F6691CB16CF500C3D37A /* tmx_manager.cpp */; };
 		1FC358A21CAB06EE0023AE10 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FC358A11CAB06EE0023AE10 /* main.cpp */; };
-		1FC358AA1CAB0BA00023AE10 /* tmx_map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FC358A81CAB0BA00023AE10 /* tmx_map.cpp */; };
+		1FC358AA1CAB0BA00023AE10 /* tmx_map_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FC358A81CAB0BA00023AE10 /* tmx_map_loader.cpp */; };
 		1FF649E81CB1A4AA001B9BB1 /* libglfw.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF649E71CB1A4AA001B9BB1 /* libglfw.3.1.dylib */; };
+		1FF64A781CB1B126001B9BB1 /* tmx_ini_parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF64A761CB1B126001B9BB1 /* tmx_ini_parser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,10 +214,13 @@
 		1F56F66A1CB16CF500C3D37A /* tmx_manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_manager.hpp; sourceTree = "<group>"; };
 		1FC3589E1CAB06EE0023AE10 /* tiled_loader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tiled_loader; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC358A11CAB06EE0023AE10 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		1FC358A81CAB0BA00023AE10 /* tmx_map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmx_map.cpp; sourceTree = "<group>"; };
-		1FC358A91CAB0BA00023AE10 /* tmx_map.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_map.hpp; sourceTree = "<group>"; };
+		1FC358A81CAB0BA00023AE10 /* tmx_map_loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmx_map_loader.cpp; sourceTree = "<group>"; };
+		1FC358A91CAB0BA00023AE10 /* tmx_map_loader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_map_loader.hpp; sourceTree = "<group>"; };
 		1FF649E71CB1A4AA001B9BB1 /* libglfw.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.1.dylib; path = glfw/src/Debug/libglfw.3.1.dylib; sourceTree = "<group>"; };
 		1FF649E91CB1A4D6001B9BB1 /* GLFW.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GLFW.xcodeproj; path = glfw/GLFW.xcodeproj; sourceTree = "<group>"; };
+		1FF64A5A1CB1AFE9001B9BB1 /* TODO_LIST */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO_LIST; sourceTree = "<group>"; };
+		1FF64A761CB1B126001B9BB1 /* tmx_ini_parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmx_ini_parser.cpp; sourceTree = "<group>"; };
+		1FF64A771CB1B126001B9BB1 /* tmx_ini_parser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_ini_parser.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +249,7 @@
 		1FC358951CAB06EE0023AE10 = {
 			isa = PBXGroup;
 			children = (
+				1FF64A5A1CB1AFE9001B9BB1 /* TODO_LIST */,
 				1F56F65E1CB0C15D00C3D37A /* MAC_FRAMEWORKS */,
 				1FC358A01CAB06EE0023AE10 /* tiled_loader */,
 				1FC3589F1CAB06EE0023AE10 /* Products */,
@@ -263,12 +268,14 @@
 			isa = PBXGroup;
 			children = (
 				1FC358A11CAB06EE0023AE10 /* main.cpp */,
-				1FC358A81CAB0BA00023AE10 /* tmx_map.cpp */,
-				1FC358A91CAB0BA00023AE10 /* tmx_map.hpp */,
+				1FC358A81CAB0BA00023AE10 /* tmx_map_loader.cpp */,
+				1FC358A91CAB0BA00023AE10 /* tmx_map_loader.hpp */,
 				1F56F6571CB0975B00C3D37A /* tmx_helper_functions.cpp */,
 				1F56F6581CB0975B00C3D37A /* tmx_helper_functions.hpp */,
 				1F56F6691CB16CF500C3D37A /* tmx_manager.cpp */,
 				1F56F66A1CB16CF500C3D37A /* tmx_manager.hpp */,
+				1FF64A761CB1B126001B9BB1 /* tmx_ini_parser.cpp */,
+				1FF64A771CB1B126001B9BB1 /* tmx_ini_parser.hpp */,
 			);
 			path = tiled_loader;
 			sourceTree = "<group>";
@@ -552,7 +559,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FC358AA1CAB0BA00023AE10 /* tmx_map.cpp in Sources */,
+				1FF64A781CB1B126001B9BB1 /* tmx_ini_parser.cpp in Sources */,
+				1FC358AA1CAB0BA00023AE10 /* tmx_map_loader.cpp in Sources */,
 				1FC358A21CAB06EE0023AE10 /* main.cpp in Sources */,
 				1F56F6591CB0975B00C3D37A /* tmx_helper_functions.cpp in Sources */,
 				1F56F66B1CB16CF500C3D37A /* tmx_manager.cpp in Sources */,

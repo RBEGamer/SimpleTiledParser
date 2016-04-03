@@ -19,7 +19,7 @@
 #include <malloc.h>
 #endif
 #include "tmx_helper_functions.hpp"
-class tmx_map {
+class tmx_map_loader {
    public:
     
     
@@ -195,8 +195,8 @@ class tmx_map {
     TMX_LAYER_DESC* layer_desc;
     
     std::string tilesets_folder_path;
-    tmx_map();
-    ~tmx_map();
+    tmx_map_loader();
+    ~tmx_map_loader();
 
     bool tmx_load_map(const char* _tmx_file_path);
     
@@ -211,13 +211,13 @@ private:
     
     void tmx_parse_data(int _tmx_current_layer, std::string _tmx_xml_buffer, TMX_LAYER_DESC* tmx_layer_desc);
     void tmx_parse_csv_none_encoding(int _tmx_curr_data, std::string _tmx_xml_buffer, TMX_DATA_DESC* _tmx_data_desc);
-    void tmx_create_layer_descriptor(tmx_map::TMX_LAYER_DESC* _tmx_layer_desc);
+    void tmx_create_layer_descriptor(TMX_LAYER_DESC* _tmx_layer_desc);
     void tmx_parse_layers(int _tmx_count_layers, std::string _tmx_xml_buffer, TMX_LAYER_DESC* _tmx_layers_desc);
     
     
     void tmx_create_map_descriptor(TMX_MAP_DESC* _tmx_map_desc);
-    void tmx_create_tileset_descriptor(tmx_map::TMX_TILESET_DESC* _tmx_tileset_desc);
-    void tmx_create_image_desc(tmx_map::TMX_IMAGE_DESC* _tmx_image_desc);
+    void tmx_create_tileset_descriptor(TMX_TILESET_DESC* _tmx_tileset_desc);
+    void tmx_create_image_desc(TMX_IMAGE_DESC* _tmx_image_desc);
     std::string tmx_parse_map_desc(char* _tmx_xml_buffer,  TMX_MAP_DESC* _map_desc);
 };
 

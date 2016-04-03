@@ -19,6 +19,8 @@ public:
     ~tmx_manager();
 
     
+    
+    
    static  tmx_manager& getManagerInstance();
     static void destroyTmxManager();
 };

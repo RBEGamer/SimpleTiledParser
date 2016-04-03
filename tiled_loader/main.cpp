@@ -8,8 +8,8 @@
 
 #include <iostream>
 #include "tmx_manager.hpp"
-#include "tmx_map.hpp"
-
+#include "tmx_map_loader.hpp"
+#include "tmx_ini_parser.hpp"
 
 
 
@@ -74,6 +74,12 @@ int listdir(const char *path) {
 int main(int argcp, const char ** argv) {
     std::cout << "Simple Tiled Loader\n";
 
+    
+    tmx_ini_loader* tmx_ini_loader = new tmx_ini_loader::tmx_ini_loader();
+    tmx_ini_loader->load_ini_file("config.ini");
+    std::cout << tmx_ini_loader->get_value("window", "window_title") << std::endl;
+    
+    
     tmx_manager* tmx_manager_instance = &tmx_manager::getManagerInstance();
     
     
@@ -92,9 +98,9 @@ int main(int argcp, const char ** argv) {
     //glfwMakeContextCurrent(glfWindow);
    
     
-    tmx_map* tiled_map = new tmx_map();
+    tmx_map_loader* tiled_map = new tmx_map_loader();
  
-    if(!tiled_map->tmx_load_map("/tiled/desert-palace.tmx")){
+    if(!tiled_map->tmx_load_map("tiled/desert-palace.tmx")){
         std::cout << "tmx_load_map fialed check file" << std::endl;
     }else{
     std::cout << "map file loaded" << std::endl;

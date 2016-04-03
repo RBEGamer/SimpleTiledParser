@@ -6,16 +6,16 @@
 //  Copyright © 2016 Marcel Ochsendorf. All rights reserved.
 //
 
-#include "tmx_map.hpp"
+#include "tmx_map_loader.hpp"
 
-tmx_map::tmx_map(){
+tmx_map_loader::tmx_map_loader(){
     map_desc = new TMX_MAP_DESC();
     tmx_create_map_descriptor(map_desc);
     
     
 }
 
-tmx_map::~tmx_map(){
+tmx_map_loader::~tmx_map_loader(){
     //cleanup tileset desc
     delete[] tilesets_desc->tmx_tile_desc->tmx_animation_desc->tmx_frames;
     delete[] tilesets_desc->tmx_tile_desc->tmx_animation_desc;
@@ -30,7 +30,7 @@ tmx_map::~tmx_map(){
     delete map_desc;
 }
 
-void tmx_map::tmx_create_map_descriptor(tmx_map::TMX_MAP_DESC* _tmx_map_desc){
+void tmx_map_loader::tmx_create_map_descriptor(TMX_MAP_DESC* _tmx_map_desc){
     strcpy(_tmx_map_desc->tmx_version , "0.0");
     _tmx_map_desc->tmx_orientation = TMX_MAP_ORIENTATION::invalid_orientation;
     _tmx_map_desc->tmx_renderorder = TMX_MAP_RENDERORDER::invalid_renderorder;
@@ -45,7 +45,7 @@ void tmx_map::tmx_create_map_descriptor(tmx_map::TMX_MAP_DESC* _tmx_map_desc){
     _tmx_map_desc->tmx_nextobjectid = 0;
 }
 
-void tmx_map::tmx_create_image_desc(tmx_map::TMX_IMAGE_DESC* _tmx_image_desc){
+void tmx_map_loader::tmx_create_image_desc(TMX_IMAGE_DESC* _tmx_image_desc){
     _tmx_image_desc->tmx_height = 0;
     _tmx_image_desc->tmx_width = 0;
     _tmx_image_desc->tmx_image_format = "";
@@ -53,7 +53,7 @@ void tmx_map::tmx_create_image_desc(tmx_map::TMX_IMAGE_DESC* _tmx_image_desc){
     _tmx_image_desc->tmx_trans_color = 0;
 }
 
-void tmx_map::tmx_create_tileset_descriptor(tmx_map::TMX_TILESET_DESC* _tmx_tileset_desc){
+void tmx_map_loader::tmx_create_tileset_descriptor(TMX_TILESET_DESC* _tmx_tileset_desc){
     _tmx_tileset_desc->tmx_firstgid = -1;
     _tmx_tileset_desc->tmx_source = "";
     _tmx_tileset_desc->tmx_name = "";
@@ -68,7 +68,7 @@ void tmx_map::tmx_create_tileset_descriptor(tmx_map::TMX_TILESET_DESC* _tmx_tile
     _tmx_tileset_desc->tmx_tile_desc = 0;
 }
 
-void tmx_map::tmx_create_layer_descriptor(tmx_map::TMX_LAYER_DESC* _tmx_layer_desc){
+void tmx_map_loader::tmx_create_layer_descriptor(TMX_LAYER_DESC* _tmx_layer_desc){
     _tmx_layer_desc->tmx_data = 0;
     _tmx_layer_desc->tmx_data_count = 0;
     _tmx_layer_desc->tmx_height = 0;
@@ -84,7 +84,7 @@ void tmx_map::tmx_create_layer_descriptor(tmx_map::TMX_LAYER_DESC* _tmx_layer_de
     _tmx_layer_desc->tmx_width = 0;
 }
 
-void tmx_map::tmx_parse_image(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc){
+void tmx_map_loader::tmx_parse_image(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc){
     //read image tag
     //read attr
     //put in tileset
@@ -186,7 +186,7 @@ void tmx_map::tmx_parse_image(int _tmx_curr_tileset, std::string _tmx_xml_buffer
     attr_value_string = "";
 }
 
-void tmx_map::tmx_parse_animation(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_TILE_DESC* tmx_tile_desc){
+void tmx_map_loader::tmx_parse_animation(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_TILE_DESC* tmx_tile_desc){
     /*
      <animation>
      <frame tileid="64" duration="250"/>
@@ -322,7 +322,7 @@ void tmx_map::tmx_parse_animation(int _tmx_current_tile, std::string _tmx_xml_bu
     
 }
 
-void tmx_map::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_TILE_DESC* tmx_tile_desc){
+void tmx_map_loader::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_TILE_DESC* tmx_tile_desc){
     /*
      <properties>
      <property name="item_id" type="int" value="0"/>
@@ -419,7 +419,7 @@ void tmx_map::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buf
     }
 }
 
-void tmx_map::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_LAYER_DESC* tmx_layer_desc){
+void tmx_map_loader::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buffer, TMX_LAYER_DESC* tmx_layer_desc){
     /*
      <properties>
      <property name="item_id" type="int" value="0"/>
@@ -517,7 +517,7 @@ void tmx_map::tmx_parse_property(int _tmx_current_tile, std::string _tmx_xml_buf
     }
 }
 
-void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tileset_desc){
+void tmx_map_loader::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tileset_desc){
     //count special tiles
     
     const char* tile_counter_itr = strstr(_tmx_xml_buffer.c_str(), "<tile ");
@@ -620,7 +620,7 @@ void tmx_map::tmx_parse_tile(int _tmx_curr_tileset, std::string _tmx_xml_buffer,
     
 }
 
-void tmx_map::tmx_parse_csv_none_encoding(int _tmx_curr_data, std::string _tmx_xml_buffer, TMX_DATA_DESC* _tmx_data_desc){
+void tmx_map_loader::tmx_parse_csv_none_encoding(int _tmx_curr_data, std::string _tmx_xml_buffer, TMX_DATA_DESC* _tmx_data_desc){
     
     replaceAll(_tmx_xml_buffer, "\n" , ""); //replace the new line charakter
     _tmx_xml_buffer.append(","); //append a , to iterate through the last tile
@@ -674,7 +674,7 @@ void tmx_map::tmx_parse_csv_none_encoding(int _tmx_curr_data, std::string _tmx_x
     //wenn id 0 ist dann auf NULL refren
 }
 
-void tmx_map::tmx_parse_data(int _tmx_current_layer, std::string _tmx_xml_buffer, TMX_LAYER_DESC* tmx_layer_desc){
+void tmx_map_loader::tmx_parse_data(int _tmx_current_layer, std::string _tmx_xml_buffer, TMX_LAYER_DESC* tmx_layer_desc){
     //count data
     const char* data_counter_itr = strstr(_tmx_xml_buffer.c_str(), "<data ");
     int data_array_size = 0;
@@ -789,7 +789,7 @@ void tmx_map::tmx_parse_data(int _tmx_current_layer, std::string _tmx_xml_buffer
     
 }
 
-void tmx_map::tmx_parse_layers(int _tmx_count_layers, std::string _tmx_xml_buffer, TMX_LAYER_DESC* _tmx_layers_desc){
+void tmx_map_loader::tmx_parse_layers(int _tmx_count_layers, std::string _tmx_xml_buffer, TMX_LAYER_DESC* _tmx_layers_desc){
     
     // get attr WITH HEIGT !!!
     //get content
@@ -959,7 +959,7 @@ void tmx_map::tmx_parse_layers(int _tmx_count_layers, std::string _tmx_xml_buffe
     
 }
 
-void tmx_map::tmx_parse_tilesets(int _tmx_count_tilesets, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc){
+void tmx_map_loader::tmx_parse_tilesets(int _tmx_count_tilesets, std::string _tmx_xml_buffer, TMX_TILESET_DESC* _tmx_tilesets_desc){
     
     
     
@@ -1177,7 +1177,7 @@ void tmx_map::tmx_parse_tilesets(int _tmx_count_tilesets, std::string _tmx_xml_b
     
 }
 
-std::string tmx_map::tmx_parse_map_desc(char* _tmx_xml_buffer, tmx_map::TMX_MAP_DESC* _map_desc){
+std::string tmx_map_loader::tmx_parse_map_desc(char* _tmx_xml_buffer, TMX_MAP_DESC* _map_desc){
     //get the <map attr="1" attr="2">
     char* map_attr_start = strstr(_tmx_xml_buffer, "<map");
     map_attr_start += 4; //remove the <map
@@ -1409,7 +1409,7 @@ std::string tmx_map::tmx_parse_map_desc(char* _tmx_xml_buffer, tmx_map::TMX_MAP_
     return map_content;
 }
 
-bool tmx_map::tmx_load_map(const char* _tmx_file_path){
+bool tmx_map_loader::tmx_load_map(const char* _tmx_file_path){
     
     
     //READ COMPLETE FILE TO BUFFER
