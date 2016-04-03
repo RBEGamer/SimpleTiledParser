@@ -9,8 +9,7 @@ Currently not supported :
 * Only CSV Encoding with no compression !
 * No Terrain support
 
-Files : * tmx_map_loader.cpp
-        * tmx_map_loader_hpp
+Needed files :  tmx_map_loader.cpp,  tmx_map_loader_hpp
 
 
 # INI File Parser
@@ -21,3 +20,5 @@ Parses a ini config file. With easy to use Section and Key search functions.
 * tmx_ini_loader->load_ini_file("config.ini");
 * std::string result = tmx_ini_loader->get_value("window", "window_title");
 * delete tmx_ini_loader;
+
+Needed files :  tmx_ini_parser.cpp,  tmx_ini_parser.hpp
