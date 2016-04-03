@@ -8,14 +8,28 @@
 
 #include "tmx_manager.hpp"
 
-tmx_manager::tmx_manager(){
-
+tmx_manager::tmx_manager(bool _running){
+    is_running = _running;
+    _window = glfwGetCurrentContext();
 }
 
 
 tmx_manager::~tmx_manager(){
 
 
+}
+
+
+void tmx_manager::run_main_loop(){
+    while (is_running) {
+        //update subsystems
+        is_running = !glfwWindowShouldClose(_window);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
+        
+        glfwSwapBuffers(_window);
+        glfwPollEvents();
+    }
 }
 
 tmx_manager& tmx_manager::getManagerInstance(){
@@ -25,11 +39,33 @@ tmx_manager& tmx_manager::getManagerInstance(){
         glfwInit();
         GLFWwindow* glfw_window = NULL;
         //TODO ADD INI PARSER
-        glfw_window = glfwCreateWindow(glfw_window_settings.screen_w, glfw_window_settings.screen_h, glfw_window_settings.window_title.c_str(), NULL, NULL);
+        glfwWindowHint(GLFW_RED_BITS, 8);
+        glfwWindowHint(GLFW_GREEN_BITS, 8);
+        glfwWindowHint(GLFW_BLUE_BITS, 8);
+        glfwWindowHint(GLFW_ALPHA_BITS, 8);
+        
+        // glfwWindowHint(GLFW_DEPTH_BITS, 24);
+        
+        
+        
+        tmx_ini_loader* tmx_ini_loader = new tmx_ini_loader::tmx_ini_loader();
+        tmx_ini_loader->load_ini_file("config.ini");
+
+
+        
+
+        glfw_window = glfwCreateWindow(atoi(tmx_ini_loader->get_value("window", "window_width").c_str()), atoi(tmx_ini_loader->get_value("window", "window_height").c_str()), tmx_ini_loader->get_value("window", "window_title").c_str(), NULL, NULL);
+        
+        if(glfw_window == NULL){
+        glfw_window = glfwCreateWindow(320,240, "CONIFIG NOT FOUND", NULL, NULL);
+        }
+        
+        if(glfw_window == NULL){exit(3);}
         //set opengl context
         glfwMakeContextCurrent(glfw_window);
         
-        curr_instance =new tmx_manager();
+        curr_instance =new tmx_manager(true);
+        delete tmx_ini_loader;
         if(curr_instance != NULL){
         std::cout << "TMX MANAGER INSTANCE CREATED" << std::endl;
         }else{
@@ -48,6 +84,9 @@ void tmx_manager::destroyTmxManager(){
 
     delete curr_instance;
     std::cout << "TMX MANAGER INSTANCE DELTED" << std::endl;
+    
+    GLFWwindow* current_window = glfwGetCurrentContext();
+    glfwDestroyWindow(current_window);
     glfwTerminate();
     //SHUTDOWN
 }

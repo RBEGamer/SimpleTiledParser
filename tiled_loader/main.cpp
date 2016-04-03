@@ -74,44 +74,31 @@ int listdir(const char *path) {
 int main(int argcp, const char ** argv) {
     std::cout << "START\n";
 
-    
-    tmx_ini_loader* tmx_ini_loader = new tmx_ini_loader::tmx_ini_loader();
-    tmx_ini_loader->load_ini_file("config.ini");
-    tmx_manager::glfw_window_settings.window_title = tmx_ini_loader->get_value("window", "window_title");
-    tmx_manager::glfw_window_settings.screen_w =atoi(tmx_ini_loader->get_value("window", "window_title").c_str());
-    tmx_manager::glfw_window_settings.screen_h =atoi(tmx_ini_loader->get_value("window", "window_title").c_str());
-    tmx_manager* tmx_manager_instance = &tmx_manager::getManagerInstance();
+    //LOAD CONFIG FILE HERE
+  
+ 
+          tmx_manager* tmx_manager_instance = &tmx_manager::getManagerInstance();
     
     
-    //glfwInit();
-    
-    // insert code here...
-          //glfwInit();
-    //CREATE WINDOW
-    //glfwWindowHint(GLFW_DEPTH_BITS, 24);
-    //glfwWindowHint(GLFW_RED_BITS, 8);
-    //glfwWindowHint(GLFW_GREEN_BITS, 8);
-    //glfwWindowHint(GLFW_BLUE_BITS, 8);
-    //glfwWindowHint(GLFW_ALPHA_BITS, 8);
-    //GLFWwindow* glfWindow = glfwCreateWindow(800, 480, "SIMPLE TILE LOADER", NULL/* FULLSCREEN MONITOR*/, NULL);
-    //set / create opengl context
-    //glfwMakeContextCurrent(glfWindow);
+
    
     
     tmx_map_loader* tiled_map = new tmx_map_loader();
  
     if(!tiled_map->tmx_load_map("tiled/desert-palace.tmx")){
-        std::cout << "tmx_load_map fialed check file" << std::endl;
+    std::cout << "tmx_load_map fialed check file" << std::endl;
     }else{
     std::cout << "map file loaded" << std::endl;
     }
     
+    //STARTING MAIN LOOP
+    std::cout << "ENTER GAME LOOP" << std::endl;
     
-
+    tmx_manager_instance->run_main_loop();
 
     
     delete tiled_map;
-    delete tmx_ini_loader;
+    
     tmx_manager::destroyTmxManager();
     return 0;
 }

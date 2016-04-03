@@ -21,6 +21,8 @@ public:
     
     tmx_ini_loader();
     ~tmx_ini_loader();
+    void load_ini_file(const char* _filepath);
+    std::string get_value(std::string _section, std::string _key);
     
     
     struct INI_FILE_KVPAIR{
@@ -41,9 +43,7 @@ public:
     
     INI_FILE_DESC* loaded_ini_file;
     
-    void load_ini_file(const char* _filepath);
-    
-    std::string get_value(std::string _section, std::string _key);
+
 
 
 

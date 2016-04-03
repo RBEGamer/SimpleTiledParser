@@ -10,28 +10,26 @@
 #define tmx_manager_hpp
 
 #include <stdio.h>
+#include <cstring>
 #include <iostream>
+#include <stdlib.h>
 #include "../glfw/include/GLFW/glfw3.h"
-
+#include "tmx_ini_parser.hpp"
 class tmx_manager{
 public:
-    tmx_manager();
+    tmx_manager(bool _running = true);
     ~tmx_manager();
 
     
     
-    
-   static  tmx_manager& getManagerInstance();
+     static  tmx_manager& getManagerInstance();
     static void destroyTmxManager();
+    void run_main_loop();
     
+
     
-     struct GLFW_WINDOW_DESCRIPTION{
-        int screen_w;
-        int screen_h;
-        std::string window_title;
-    };
-    
-    static GLFW_WINDOW_DESCRIPTION glfw_window_settings;
+    bool is_running;
+    GLFWwindow* _window;
 };
 
 

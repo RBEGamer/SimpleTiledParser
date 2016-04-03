@@ -30,10 +30,11 @@ tmx_ini_loader::tmx_ini_loader(){
 
 tmx_ini_loader::~tmx_ini_loader(){
     for (int i = 0; i < loaded_ini_file->section_count ; i++) {
-        delete  (loaded_ini_file->sections+i)->kvpair;
+        if((loaded_ini_file->sections+i)->kvpair == NULL){continue;}
+     //   delete  (loaded_ini_file->sections+i)->kvpair;
     }
-    delete loaded_ini_file->sections;
-    delete loaded_ini_file;
+  //  delete loaded_ini_file->sections;
+  //  delete loaded_ini_file;
 }
 
 //TODO LOAD IN DICT
