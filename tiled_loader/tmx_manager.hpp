@@ -23,6 +23,15 @@ public:
     
    static  tmx_manager& getManagerInstance();
     static void destroyTmxManager();
+    
+    
+     struct GLFW_WINDOW_DESCRIPTION{
+        int screen_w;
+        int screen_h;
+        std::string window_title;
+    };
+    
+    static GLFW_WINDOW_DESCRIPTION glfw_window_settings;
 };
 
 

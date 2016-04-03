@@ -72,14 +72,14 @@ int listdir(const char *path) {
 }
 */
 int main(int argcp, const char ** argv) {
-    std::cout << "Simple Tiled Loader\n";
+    std::cout << "START\n";
 
     
     tmx_ini_loader* tmx_ini_loader = new tmx_ini_loader::tmx_ini_loader();
     tmx_ini_loader->load_ini_file("config.ini");
-    std::cout << tmx_ini_loader->get_value("window", "window_title") << std::endl;
-    
-    
+    tmx_manager::glfw_window_settings.window_title = tmx_ini_loader->get_value("window", "window_title");
+    tmx_manager::glfw_window_settings.screen_w =atoi(tmx_ini_loader->get_value("window", "window_title").c_str());
+    tmx_manager::glfw_window_settings.screen_h =atoi(tmx_ini_loader->get_value("window", "window_title").c_str());
     tmx_manager* tmx_manager_instance = &tmx_manager::getManagerInstance();
     
     
@@ -111,15 +111,7 @@ int main(int argcp, const char ** argv) {
 
     
     delete tiled_map;
-    
-    
-    //destroy window
-    //glfwDestroyWindow(glfwGetCurrentContext());
-    //shitdown stuff
-    //glfwTerminate();
-    
-    
-    glfwTerminate();
+    delete tmx_ini_loader;
     tmx_manager::destroyTmxManager();
     return 0;
 }

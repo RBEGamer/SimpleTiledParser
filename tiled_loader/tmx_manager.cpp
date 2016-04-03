@@ -25,7 +25,7 @@ tmx_manager& tmx_manager::getManagerInstance(){
         glfwInit();
         GLFWwindow* glfw_window = NULL;
         //TODO ADD INI PARSER
-        glfw_window = glfwCreateWindow(800, 480, "Tiled Loader", NULL, NULL);
+        glfw_window = glfwCreateWindow(glfw_window_settings.screen_w, glfw_window_settings.screen_h, glfw_window_settings.window_title.c_str(), NULL, NULL);
         //set opengl context
         glfwMakeContextCurrent(glfw_window);
         
