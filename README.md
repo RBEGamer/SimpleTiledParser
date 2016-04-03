@@ -20,5 +20,5 @@ Parses a ini config file. With easy to use Section and Key search functions.
 * #include "tmx_ini_parser.hpp"
 * tmx_ini_loader* tmx_ini_loader = new tmx_ini_loader::tmx_ini_loader();
 * tmx_ini_loader->load_ini_file("config.ini");
-* tmx_manager::glfw_window_settings.window_title = tmx_ini_loader->get_value("window", "window_title");
+* std::string result = tmx_ini_loader->get_value("window", "window_title");
 * delete tmx_ini_loader;
