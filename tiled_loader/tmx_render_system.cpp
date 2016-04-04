@@ -35,5 +35,5 @@ void tmx_render_system::render(){
     
     
     glfwSwapBuffers(_window);
-    
+    glfwPollEvents();
 }

@@ -29,7 +29,7 @@ void tmx_manager::run_main_loop(){
         
        
         _render_system->render();
-        glfwPollEvents();
+    
     }
 }
 
