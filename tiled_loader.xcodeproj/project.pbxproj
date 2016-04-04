@@ -17,6 +17,7 @@
 		1FF64A7B1CB20098001B9BB1 /* tmx_render_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF64A791CB20098001B9BB1 /* tmx_render_system.cpp */; };
 		1FF64A7E1CB20834001B9BB1 /* tmx_vertex_buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF64A7C1CB20834001B9BB1 /* tmx_vertex_buffer.cpp */; };
 		1FF64A811CB2DB7F001B9BB1 /* tmx_shader_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF64A7F1CB2DB7F001B9BB1 /* tmx_shader_loader.cpp */; };
+		1FF64A841CB2FA58001B9BB1 /* tmx_shader_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF64A821CB2FA58001B9BB1 /* tmx_shader_interface.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -230,6 +231,8 @@
 		1FF64A7D1CB20834001B9BB1 /* tmx_vertex_buffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_vertex_buffer.hpp; sourceTree = "<group>"; };
 		1FF64A7F1CB2DB7F001B9BB1 /* tmx_shader_loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmx_shader_loader.cpp; sourceTree = "<group>"; };
 		1FF64A801CB2DB7F001B9BB1 /* tmx_shader_loader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_shader_loader.hpp; sourceTree = "<group>"; };
+		1FF64A821CB2FA58001B9BB1 /* tmx_shader_interface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmx_shader_interface.cpp; sourceTree = "<group>"; };
+		1FF64A831CB2FA58001B9BB1 /* tmx_shader_interface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_shader_interface.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +294,8 @@
 				1FF64A7D1CB20834001B9BB1 /* tmx_vertex_buffer.hpp */,
 				1FF64A7F1CB2DB7F001B9BB1 /* tmx_shader_loader.cpp */,
 				1FF64A801CB2DB7F001B9BB1 /* tmx_shader_loader.hpp */,
+				1FF64A821CB2FA58001B9BB1 /* tmx_shader_interface.cpp */,
+				1FF64A831CB2FA58001B9BB1 /* tmx_shader_interface.hpp */,
 			);
 			path = tiled_loader;
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FF64A781CB1B126001B9BB1 /* tmx_ini_parser.cpp in Sources */,
+				1FF64A841CB2FA58001B9BB1 /* tmx_shader_interface.cpp in Sources */,
 				1FC358AA1CAB0BA00023AE10 /* tmx_map_loader.cpp in Sources */,
 				1FF64A7E1CB20834001B9BB1 /* tmx_vertex_buffer.cpp in Sources */,
 				1FF64A811CB2DB7F001B9BB1 /* tmx_shader_loader.cpp in Sources */,
