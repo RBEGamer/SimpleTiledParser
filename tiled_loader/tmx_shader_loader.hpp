@@ -11,4 +11,20 @@
 
 #include <stdio.h>
 
+#include <iostream>
+#include "../glfw/include/GLFW/glfw3.h"
+
+
+class tmx_shader_loader{
+private:
+    
+    GLuint _program_handle;
+    
+    GLuint compile_shader(GLenum _target, const char* _source);
+public:
+    tmx_shader_loader(const char* _source_vs, const char* _source_fs);
+    ~tmx_shader_loader();
+
+    GLuint get_progam_handle();
+};
 #endif /* tmx_shader_loader_hpp */
