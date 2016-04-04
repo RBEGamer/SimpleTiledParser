@@ -77,7 +77,7 @@ int main(int argcp, const char ** argv) {
     //LOAD CONFIG FILE HERE
   
  
-          tmx_manager* tmx_manager_instance = &tmx_manager::getManagerInstance();
+    tmx_manager* tmx_manager_instance = &tmx_manager::getManagerInstance();
     
     
 

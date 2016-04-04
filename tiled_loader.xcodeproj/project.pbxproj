@@ -14,6 +14,7 @@
 		1FC358AA1CAB0BA00023AE10 /* tmx_map_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FC358A81CAB0BA00023AE10 /* tmx_map_loader.cpp */; };
 		1FF649E81CB1A4AA001B9BB1 /* libglfw.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF649E71CB1A4AA001B9BB1 /* libglfw.3.1.dylib */; };
 		1FF64A781CB1B126001B9BB1 /* tmx_ini_parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF64A761CB1B126001B9BB1 /* tmx_ini_parser.cpp */; };
+		1FF64A7B1CB20098001B9BB1 /* tmx_render_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF64A791CB20098001B9BB1 /* tmx_render_system.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +222,8 @@
 		1FF64A5A1CB1AFE9001B9BB1 /* TODO_LIST */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO_LIST; sourceTree = "<group>"; };
 		1FF64A761CB1B126001B9BB1 /* tmx_ini_parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmx_ini_parser.cpp; sourceTree = "<group>"; };
 		1FF64A771CB1B126001B9BB1 /* tmx_ini_parser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_ini_parser.hpp; sourceTree = "<group>"; };
+		1FF64A791CB20098001B9BB1 /* tmx_render_system.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmx_render_system.cpp; sourceTree = "<group>"; };
+		1FF64A7A1CB20098001B9BB1 /* tmx_render_system.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tmx_render_system.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +279,8 @@
 				1F56F66A1CB16CF500C3D37A /* tmx_manager.hpp */,
 				1FF64A761CB1B126001B9BB1 /* tmx_ini_parser.cpp */,
 				1FF64A771CB1B126001B9BB1 /* tmx_ini_parser.hpp */,
+				1FF64A791CB20098001B9BB1 /* tmx_render_system.cpp */,
+				1FF64A7A1CB20098001B9BB1 /* tmx_render_system.hpp */,
 			);
 			path = tiled_loader;
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 				1FC358AA1CAB0BA00023AE10 /* tmx_map_loader.cpp in Sources */,
 				1FC358A21CAB06EE0023AE10 /* main.cpp in Sources */,
 				1F56F6591CB0975B00C3D37A /* tmx_helper_functions.cpp in Sources */,
+				1FF64A7B1CB20098001B9BB1 /* tmx_render_system.cpp in Sources */,
 				1F56F66B1CB16CF500C3D37A /* tmx_manager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

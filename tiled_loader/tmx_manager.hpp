@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include "../glfw/include/GLFW/glfw3.h"
 #include "tmx_ini_parser.hpp"
+#include "tmx_render_system.hpp"
 class tmx_manager{
 public:
     tmx_manager(bool _running = true);
@@ -30,6 +31,8 @@ public:
     
     bool is_running;
     GLFWwindow* _window;
+    
+    tmx_render_system* _render_system;
 };
 
 

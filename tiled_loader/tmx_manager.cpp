@@ -11,12 +11,13 @@
 tmx_manager::tmx_manager(bool _running){
     is_running = _running;
     _window = glfwGetCurrentContext();
+    _render_system = &tmx_render_system::get_tmx_render_system();
 }
 
 
 tmx_manager::~tmx_manager(){
 
-
+    tmx_render_system::destroy_tmx_render_system();
 }
 
 
@@ -24,10 +25,10 @@ void tmx_manager::run_main_loop(){
     while (is_running) {
         //update subsystems
         is_running = !glfwWindowShouldClose(_window);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
         
-        
-        glfwSwapBuffers(_window);
+       
+        _render_system->render();
         glfwPollEvents();
     }
 }

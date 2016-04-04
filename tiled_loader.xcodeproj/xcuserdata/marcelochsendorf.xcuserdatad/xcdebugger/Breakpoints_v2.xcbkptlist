@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tiled_loader/tmx_manager.cpp"
-            timestampString = "481419937.240431"
+            timestampString = "481429004.417999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "tmx_manager::getManagerInstance()"
             landmarkType = "5">
          </BreakpointContent>
