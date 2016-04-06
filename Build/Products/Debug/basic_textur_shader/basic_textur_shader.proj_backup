@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ExporterVersion="0.1">
+	<ClassInstance ClassName="ProjectProperties" InstanceID="0">
+		<Field Name="GraphicsModule" Value="OpenGL" />
+		<Field Name="CameraPosition" Value="406.647;-232.491" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorVertexShaderNode" InstanceID="3513">
+		<Field Name="Position" Value="220;-126" />
+		<Field Name="ContentType" Value="None" />
+		<Field Name="EffectPath" Value="Shaders/tiled_shader.vert" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="Shader" Value="3421" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorCompositeEffectNode" InstanceID="3408">
+		<Field Name="Position" Value="520;54" />
+		<Field Name="ContentType" Value="None" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="" Value="2762" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes">
+			<Field Name="VSInput" Value="3421" />
+			<Field Name="HSInput" Value="3427" />
+			<Field Name="DSInput" Value="3433" />
+			<Field Name="GSInput" Value="3439" />
+			<Field Name="PSInput" Value="3445" />
+		</FieldContainer>
+	</ClassInstance>
+	<ClassInstance ClassName="EditorCameraNode" InstanceID="3863">
+		<Field Name="Position" Value="-219;431" />
+		<Field Name="ContentType" Value="None" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="View" Value="3566" />
+			<Field Name="Projection" Value="3559" />
+			<Field Name="Position" Value="" />
+			<Field Name="Look Vector" Value="" />
+			<Field Name="Side Vector" Value="" />
+			<Field Name="Up Vector" Value="" />
+			<Field Name="Near Plane" Value="" />
+			<Field Name="Far Plane" Value="" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorPrimitiveNode" InstanceID="2021">
+		<Field Name="Position" Value="59;125" />
+		<Field Name="ContentType" Value="None" />
+		<Field Name="Generator" Value="0" />
+		<Field Name="SegmentsX" Value="32" />
+		<Field Name="SegmentsZ" Value="32" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="Model" Value="2768" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorColorNode" InstanceID="2393">
+		<Field Name="Position" Value="60;483" />
+		<Field Name="ContentType" Value="None" />
+		<Field Name="Color" Value="0;0;0;1" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="Color" Value="3597" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorDrawNode" InstanceID="2737">
+		<Field Name="Position" Value="424;226" />
+		<Field Name="ContentType" Value="None" />
+		<Field Name="OutputCount" Value="1" />
+		<Field Name="ColorOutput0" Value="4" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="OutputColor0" Value="3099" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes">
+			<Field Name="Effect" Value="2762" />
+			<Field Name="Model" Value="2768" />
+			<Field Name="Blend State" Value="2774" />
+			<Field Name="Depth State" Value="2781" />
+			<Field Name="Rasterizer State" Value="2788" />
+			<Field Name="VariablesStart" Value="2750" />
+			<Field Name="Proj (Float4x4)" Value="3559" />
+			<Field Name="View (Float4x4)" Value="3566" />
+			<Field Name="tex (Tex2D)" Value="4062" />
+			<Field Name="ColorInputStart" Value="2756" />
+			<Field Name="ClearColor0" Value="3597" />
+		</FieldContainer>
+	</ClassInstance>
+	<ClassInstance ClassName="EditorTextureNode" InstanceID="4009">
+		<Field Name="Position" Value="-182;34" />
+		<Field Name="ContentType" Value="Texture" />
+		<Field Name="TexturePath" Value="Textures/Map16.png" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="Texture" Value="4062" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorPixelShaderNode" InstanceID="3467">
+		<Field Name="Position" Value="216;-28" />
+		<Field Name="ContentType" Value="None" />
+		<Field Name="EffectPath" Value="Shaders/tiled_shader.frag" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="Shader" Value="3445" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorColorTargetOutputNode" InstanceID="3086">
+		<Field Name="Position" Value="811;505" />
+		<Field Name="ContentType" Value="None" />
+		<Field Name="NodeSize" Value="286;311" />
+		<FieldContainer Name="OutputNodes" />
+		<FieldContainer Name="InputNodes">
+			<Field Name="Target" Value="3099" />
+		</FieldContainer>
+	</ClassInstance>
+</Project>
