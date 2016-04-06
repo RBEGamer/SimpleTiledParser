@@ -13,7 +13,7 @@ tmx_render_system::tmx_render_system(){
     shaders = new std::vector<tmx_shader_interface*>;
     
     //TODO LOAD ALL SHADERS
-    tmx_shader_interface* color_shader = new tmx_shader_interface("basic_color_shader.vsh","basic_color_shader.fsh");
+    tmx_shader_interface* color_shader = new tmx_shader_interface("./basic_color_shader/Shaders/basic_color_shader.vert","./basic_color_shader/Shaders/basic_color_shader.frag");
     
     shaders->push_back(color_shader);
    // delete  color_shader;

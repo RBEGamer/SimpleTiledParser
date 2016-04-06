@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ExporterVersion="0.1">
+	<ClassInstance ClassName="ProjectProperties" InstanceID="0">
+		<Field Name="GraphicsModule" Value="OpenGL" />
+		<Field Name="CameraPosition" Value="246.251;-576.546" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorPrimitiveNode" InstanceID="1695">
+		<Field Name="Position" Value="51;420" />
+		<Field Name="ContentType" Value="None" />
+		<Field Name="Generator" Value="2" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="Model" Value="2551" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorCompositeEffectNode" InstanceID="2110">
+		<Field Name="Position" Value="704;396" />
+		<Field Name="ContentType" Value="None" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="" Value="2545" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes">
+			<Field Name="VSInput" Value="2123" />
+			<Field Name="HSInput" Value="2129" />
+			<Field Name="DSInput" Value="2135" />
+			<Field Name="GSInput" Value="2141" />
+			<Field Name="PSInput" Value="2147" />
+		</FieldContainer>
+	</ClassInstance>
+	<ClassInstance ClassName="EditorDrawNode" InstanceID="2520">
+		<Field Name="Position" Value="1002;388" />
+		<Field Name="ContentType" Value="None" />
+		<Field Name="OutputCount" Value="1" />
+		<Field Name="ColorOutput0" Value="4" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="OutputColor0" Value="2927" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes">
+			<Field Name="Effect" Value="2545" />
+			<Field Name="Model" Value="2551" />
+			<Field Name="Blend State" Value="2557" />
+			<Field Name="Depth State" Value="2564" />
+			<Field Name="Rasterizer State" Value="2571" />
+			<Field Name="VariablesStart" Value="2533" />
+			<Field Name="Proj (Float4x4)" Value="2610" />
+			<Field Name="View (Float4x4)" Value="2617" />
+			<Field Name="uColor (Float4)" Value="4183" />
+			<Field Name="ColorInputStart" Value="2539" />
+			<Field Name="ClearColor0" Value="2648" />
+		</FieldContainer>
+	</ClassInstance>
+	<ClassInstance ClassName="EditorColorNode" InstanceID="3193">
+		<Field Name="Position" Value="224;825" />
+		<Field Name="ContentType" Value="None" />
+		<Field Name="Color" Value="0;0;0;0" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="Color" Value="2648" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorCameraNode" InstanceID="3898">
+		<Field Name="Position" Value="786.5;632.25" />
+		<Field Name="ContentType" Value="None" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="View" Value="2617" />
+			<Field Name="Projection" Value="2610" />
+			<Field Name="Position" Value="" />
+			<Field Name="Look Vector" Value="" />
+			<Field Name="Side Vector" Value="" />
+			<Field Name="Up Vector" Value="" />
+			<Field Name="Near Plane" Value="" />
+			<Field Name="Far Plane" Value="" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorVertexShaderNode" InstanceID="2215">
+		<Field Name="Position" Value="404;216" />
+		<Field Name="ContentType" Value="None" />
+		<Field Name="EffectPath" Value="Shaders/basic_color_shader.vert" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="Shader" Value="2123" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorPixelShaderNode" InstanceID="2169">
+		<Field Name="Position" Value="411;309" />
+		<Field Name="ContentType" Value="None" />
+		<Field Name="EffectPath" Value="Shaders/basic_color_shader.frag" />
+		<FieldContainer Name="OutputNodes">
+			<Field Name="Shader" Value="2147" />
+		</FieldContainer>
+		<FieldContainer Name="InputNodes" />
+	</ClassInstance>
+	<ClassInstance ClassName="EditorColorTargetOutputNode" InstanceID="2914">
+		<Field Name="Position" Value="1386;391" />
+		<Field Name="ContentType" Value="None" />
+		<Field Name="NodeSize" Value="286;311" />
+		<FieldContainer Name="OutputNodes" />
+		<FieldContainer Name="InputNodes">
+			<Field Name="Target" Value="2927" />
+		</FieldContainer>
+	</ClassInstance>
+</Project>
