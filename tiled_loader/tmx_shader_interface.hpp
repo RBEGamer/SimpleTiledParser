@@ -10,6 +10,7 @@
 #define tmx_shader_interface_hpp
 
 #include <stdio.h>
+#include <stdlib.h>
 //#include "../glfw/include/GLFW/glfw3.h"
 #include "tmx_shader_loader.hpp"
 
@@ -17,7 +18,7 @@ class tmx_shader_interface{
 
 public:
     
-    tmx_shader_interface(char* _vs, char* _fs);
+    tmx_shader_interface(const char* _vs,const char* _fs);
     ~tmx_shader_interface();
     
     
@@ -26,12 +27,18 @@ public:
     GLint get_a_position_vertex();
     GLint get_u_color();
     
+    
+    
 private:
     tmx_shader_loader* shader;
     
-    GLuint aPositionVertex;
+    char* vertext_shader_string;
+    char* fragment_shader_string;
+    
+    GLint aPositionVertex;
     GLint uColor;
-
+    
+    char* load_text_from_file(const char* _path);
 
 };
 

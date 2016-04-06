@@ -8,15 +8,26 @@
 
 #include "tmx_manager.hpp"
 
+
+GLfloat vertecies[] = {
+-0.5f, -0.5f, 0.0f,
+0.5f,-0.5f, 0.0f,
+0.0f,  0.5f, 0.0f
+
+};
+
 tmx_manager::tmx_manager(bool _running){
     is_running = _running;
     _window = glfwGetCurrentContext();
     _render_system = &tmx_render_system::get_tmx_render_system();
+    
+    
+    vertex_buffer = new tmx_vertex_buffer(vertecies, sizeof(vertecies), GL_TRIANGLES, 3, sizeof(GL_FLOAT)*3);
 }
 
 
 tmx_manager::~tmx_manager(){
-
+    delete vertex_buffer;
     tmx_render_system::destroy_tmx_render_system();
 }
 
@@ -28,7 +39,7 @@ void tmx_manager::run_main_loop(){
 
         
        
-        _render_system->render();
+        _render_system->render(vertex_buffer);
     
     }
 }
@@ -44,8 +55,7 @@ tmx_manager& tmx_manager::getManagerInstance(){
         glfwWindowHint(GLFW_GREEN_BITS, 8);
         glfwWindowHint(GLFW_BLUE_BITS, 8);
         glfwWindowHint(GLFW_ALPHA_BITS, 8);
-        
-        // glfwWindowHint(GLFW_DEPTH_BITS, 24);
+         glfwWindowHint(GLFW_DEPTH_BITS, 24);
         
         
         

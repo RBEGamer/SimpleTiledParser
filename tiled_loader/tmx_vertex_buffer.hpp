@@ -14,18 +14,26 @@
 
 class tmx_vertex_buffer{
 
+private:
     
     GLuint _vertex_buffer_id; //memoryid bufferid
     
-    
+    GLenum glmode;
+    GLsizei glcount;
+    GLsizei glstride;
     
 public:
     
     
     GLuint tmx_get_vertex_buffer();
     
-    tmx_vertex_buffer(const GLvoid* _data, GLsizeiptr _size);
+    tmx_vertex_buffer(const GLvoid* _data, GLsizeiptr _size, GLenum _mode, GLsizei _count, GLsizei _stride);
     ~tmx_vertex_buffer();
+    
+    void tmx_reder_vertex_buffer();
+    void tmx_configure_vertex_attributes(GLint _vertex_pos);
+    
+    
 
 };
 #endif /* tmx_vertex_buffer_hpp */
