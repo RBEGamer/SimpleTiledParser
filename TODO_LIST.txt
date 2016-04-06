@@ -1,8 +1,10 @@
-Recursive file loader für bmp, shader, ini, tmx
+﻿Recursive file loader für bmp, shader, ini, tmx
 tmx_file_loader::getfile -> da kommt dann ein struct mit dem inhalt der datei + länge + name
 
 alle tmx load functionen nochmal bauen aber als filepath soll dann das filestruct entgegengenommen werden können
 
+includeguard für win und mac bauen -> glfw_win_precompile
 
+vs project bauen das auch den build ordner benutzt
 
 ghfw main header fil  parsen dann wenn eine shader file gefunden wurde vs den passenden fs schader suchen und alle shader im rendersystem laden
