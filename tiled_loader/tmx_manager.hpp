@@ -13,7 +13,10 @@
 #include <cstring>
 #include <iostream>
 #include <stdlib.h>
-#include "../glfw/include/GLFW/glfw3.h"
+#include "glfw_include.h"
+
+
+
 #include "tmx_ini_parser.hpp"
 #include "tmx_render_system.hpp"
 #include "tmx_vertex_buffer.hpp"

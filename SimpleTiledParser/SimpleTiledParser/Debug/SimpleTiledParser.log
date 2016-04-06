@@ -1,0 +1,209 @@
+﻿Build started 06.04.2016 11:29:13.
+     1>Project "C:\Users\Marcel.Ochsendorf\Documents\GitHub\SimpleTiledParser\SimpleTiledParser\SimpleTiledParser\SimpleTiledParser.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I..\..\glfw\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WIN /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\tiled_loader\main.cpp ..\..\tiled_loader\tmx_ini_parser.cpp ..\..\tiled_loader\tmx_manager.cpp ..\..\tiled_loader\tmx_map_loader.cpp ..\..\tiled_loader\tmx_render_system.cpp ..\..\tiled_loader\tmx_shader_interface.cpp ..\..\tiled_loader\tmx_shader_loader.cpp ..\..\tiled_loader\tmx_vertex_buffer.cpp
+         tmx_vertex_buffer.cpp
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.hpp(30): error C2061: syntax error: identifier 'GLsizeiptr'
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(12): error C2061: syntax error: identifier 'GLsizeiptr'
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(14): error C2065: '_stride': undeclared identifier
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(15): error C2065: '_mode': undeclared identifier
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(16): error C2065: '_count': undeclared identifier
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(19): error C3861: 'glGenBuffers': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(20): error C2065: 'GL_ARRAY_BUFFER': undeclared identifier
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(20): error C3861: 'glBindBuffer': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(21): error C2065: 'GL_ARRAY_BUFFER': undeclared identifier
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(21): error C2065: '_size': undeclared identifier
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(21): error C2065: 'GL_STATIC_DRAW': undeclared identifier
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(21): error C3861: 'glBufferData': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(29): error C3861: 'glDeleteBuffers': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(40): error C3861: 'glEnableVertexAttribArray': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.cpp(41): error C3861: 'glVertexAttribPointer': identifier not found
+         tmx_shader_loader.cpp
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_loader.cpp(16): error C3861: 'glCreateShader': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_loader.cpp(17): error C3861: 'glShaderSource': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_loader.cpp(18): error C3861: 'glCompileShader': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_loader.cpp(27): error C3861: 'glCreateProgram': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_loader.cpp(28): error C2065: 'GL_VERTEX_SHADER': undeclared identifier
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_loader.cpp(29): error C2065: 'GL_FRAGMENT_SHADER': undeclared identifier
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_loader.cpp(30): error C3861: 'glAttachShader': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_loader.cpp(31): error C3861: 'glAttachShader': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_loader.cpp(35): error C3861: 'glLinkProgram': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_loader.cpp(36): error C3861: 'glDeleteShader': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_loader.cpp(37): error C3861: 'glDeleteShader': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_loader.cpp(42): error C3861: 'glDeleteProgram': identifier not found
+         tmx_shader_interface.cpp
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_interface.cpp(22): error C3861: 'glGetAttribLocation': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_shader_interface.cpp(23): error C3861: 'glGetUniformLocation': identifier not found
+         tmx_render_system.cpp
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.hpp(30): error C2061: syntax error: identifier 'GLsizeiptr'
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_render_system.cpp(23): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_render_system.cpp(38): warning C4244: 'argument': conversion from 'float' to 'GLsizei', possible loss of data
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_render_system.cpp(38): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_render_system.cpp(53): error C3861: 'glUseProgram': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_render_system.cpp(57): error C3861: 'glUniform4f': identifier not found
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_render_system.cpp(60): error C3861: 'glUseProgram': identifier not found
+         tmx_map_loader.cpp
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(34): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(92): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(92): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(103): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(103): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(120): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(120): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(138): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(138): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(155): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(155): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(172): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(172): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(217): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(217): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(248): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(248): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(264): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(264): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(291): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(291): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(332): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(332): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(357): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(357): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(371): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(371): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(388): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(388): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(430): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(430): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(455): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(455): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(469): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(469): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(486): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(486): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(566): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(566): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(585): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(585): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(647): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(647): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(699): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(699): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(723): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(723): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(750): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(750): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(802): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(802): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(825): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(825): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(842): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(842): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(859): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(859): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(877): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(877): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(886): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(894): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(894): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(912): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(912): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(929): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(929): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(967): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(967): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(988): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(988): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1005): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1005): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1023): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1023): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1040): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1040): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1059): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1059): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1078): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1078): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1097): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1097): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1117): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1117): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1136): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1136): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1195): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1195): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1211): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1211): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1231): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1231): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1253): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1253): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1269): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1269): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1286): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1286): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1301): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1301): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1317): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1317): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1336): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1336): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1354): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1354): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1374): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1374): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1393): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_map_loader.cpp(1393): note: Conversion loses qualifiers
+         tmx_manager.cpp
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.hpp(30): error C2061: syntax error: identifier 'GLsizeiptr'
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_manager.cpp(25): error C2661: 'tmx_vertex_buffer::tmx_vertex_buffer': no overloaded function takes 5 arguments
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_manager.cpp(62): error C2061: syntax error: identifier '{ctor}'
+         tmx_ini_parser.cpp
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_ini_parser.cpp(51): error C2679: binary '<<': no operator found which takes a right-hand operand of type 'std::string' (or there is no acceptable conversion)
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(497): note: could be 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_streambuf<char,std::char_traits<char>> *)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(477): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(const void *)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(457): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long double)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(437): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(417): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(float)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(396): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned __int64)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(376): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(__int64)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(355): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned long)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(335): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(315): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned int)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(290): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(270): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned short)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(236): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(short)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(216): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(bool)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(209): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(202): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &))'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(196): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ostream<char,std::char_traits<char>> &(__cdecl *)(std::basic_ostream<char,std::char_traits<char>> &))'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(694): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const char *)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(741): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,char)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(779): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const char *)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(826): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,char)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(952): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const signed char *)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(959): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,signed char)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(966): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const unsigned char *)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(973): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,unsigned char)'
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(983): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>,std::string>(std::basic_ostream<char,std::char_traits<char>> &&,const _Ty &)'
+                 with
+                 [
+                     _Ty=std::string
+                 ]
+         c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(1021): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const std::error_code &)'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_ini_parser.cpp(51): note: while trying to match the argument list '(std::basic_ostream<char,std::char_traits<char>>, std::string)'
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_ini_parser.cpp(84): error C2440: 'initializing': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_ini_parser.cpp(84): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_ini_parser.cpp(111): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_ini_parser.cpp(111): note: Conversion loses qualifiers
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_ini_parser.cpp(149): error C2440: '=': cannot convert from 'const char *' to 'char *'
+         c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_ini_parser.cpp(149): note: Conversion loses qualifiers
+         main.cpp
+     1>c:\users\marcel.ochsendorf\documents\github\simpletiledparser\tiled_loader\tmx_vertex_buffer.hpp(30): error C2061: syntax error: identifier 'GLsizeiptr'
+         Generating Code...
+     1>Done Building Project "C:\Users\Marcel.Ochsendorf\Documents\GitHub\SimpleTiledParser\SimpleTiledParser\SimpleTiledParser\SimpleTiledParser.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.93

@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 #include <iostream>
-#include "../glfw/include/GLFW/glfw3.h"
+#include "glfw_include.h"
 
 
 class tmx_shader_loader{

@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #define GLFW_INCLUDE_GLU
-#include "../glfw/include/GLFW/glfw3.h"
+#include "glfw_include.h"
 #include "tmx_vertex_buffer.hpp"
 #include "tmx_shader_interface.hpp"
 #include <vector>

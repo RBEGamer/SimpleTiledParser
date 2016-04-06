@@ -10,7 +10,7 @@
 #define tmx_vertex_buffer_hpp
 
 #include <stdio.h>
-#include "../glfw/include/GLFW/glfw3.h"
+#include "glfw_include.h"
 
 class tmx_vertex_buffer{
 
