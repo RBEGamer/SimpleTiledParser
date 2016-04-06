@@ -22,3 +22,6 @@ Parses a ini config file. With easy to use Section and Key search functions.
 * delete tmx_ini_loader;
 
 Needed files :  tmx_ini_parser.cpp,  tmx_ini_parser.hpp
+
+# Compile
+To compile this project and see the test application, lunch the xcode-project and run it.
