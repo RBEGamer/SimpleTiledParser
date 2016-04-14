@@ -1,0 +1,16 @@
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/CMakeFiles/install.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/CMakeFiles/RUN_TESTS.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/CMakeFiles/ALL_BUILD.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/CMakeFiles/ZERO_CHECK.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/glm/CMakeFiles/install.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/glm/CMakeFiles/RUN_TESTS.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/test/CMakeFiles/install.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/test/CMakeFiles/RUN_TESTS.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/test/bug/CMakeFiles/install.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/test/bug/CMakeFiles/RUN_TESTS.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/test/core/CMakeFiles/install.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/test/core/CMakeFiles/RUN_TESTS.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/test/gtc/CMakeFiles/install.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/test/gtc/CMakeFiles/RUN_TESTS.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/test/gtx/CMakeFiles/install.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glfw/Build/test/gtx/CMakeFiles/RUN_TESTS.dir

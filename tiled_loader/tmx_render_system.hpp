@@ -11,11 +11,12 @@
 
 
 #include <stdio.h>
-#define GLFW_INCLUDE_GLU
+
 #include "glfw_include.h"
-#include "tmx_vertex_buffer.hpp"
-#include "tmx_shader_interface.hpp"
+//#include "tmx_manager.hpp"
+#include <iostream>
 #include <vector>
+#include "tmx_model_buffer.hpp"
 
 class tmx_render_system{
 public:
@@ -23,14 +24,22 @@ public:
     ~tmx_render_system();
     GLFWwindow* _window;
     
-    std::vector<tmx_shader_interface*> *shaders;
     
+   // tmx_model_buffer* modelbuffer;
+    
+    
+   // tmx_model_buffer* modelbuffer_1;
+
+    
+    std::vector<tmx_model_buffer *> *modelbuffers;
+    
+         
     static tmx_render_system&  get_tmx_render_system();
     static void destroy_tmx_render_system();
     
     
-    void render(tmx_vertex_buffer* _vertex_buffer);
+    void render(float _delta_time, float _run_timer);
 
-    
+    void create_matrices(float _fov,float _w, float _h, float _near, float _far);
 };
 #endif /* tmx_render_system_hpp */

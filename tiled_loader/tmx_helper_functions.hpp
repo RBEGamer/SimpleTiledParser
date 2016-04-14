@@ -18,3 +18,5 @@
 
 void replaceAll(std::string& str, const std::string& from, const std::string& to);
 bool replace(std::string& str, const std::string& from, const std::string& to);
+long getFileSize(FILE *inFile);
+char *loadTextFromFile(const char *file, const char* _mode);

@@ -1,9 +1,91 @@
 dependencies: \
   /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/tmx_manager.cpp \
   /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/tmx_manager.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/glfw_include.h \
   /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glfw/include/GLFW/glfw3.h \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/glm_include.h \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/glm.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/_fixes.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/fwd.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_int.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/setup.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_float.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_vec.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/precision.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/vec2.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_vec2.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_vec2.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/vec3.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_vec3.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_vec3.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/vec4.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_vec4.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_vec4.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/mat2x2.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat2x2.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat2x2.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/mat2x3.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat2x3.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat2x3.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/mat2x4.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat2x4.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat2x4.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/mat3x2.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat3x2.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat3x2.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/mat3x3.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat3x3.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat3x3.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/mat3x4.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat3x4.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat3x4.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/mat4x2.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat4x2.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat4x2.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/mat4x3.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat4x3.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat4x3.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/mat4x4.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat4x4.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_mat4x4.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/trigonometric.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_trigonometric.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_trigonometric.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/_vectorize.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_vec1.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_vec1.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/exponential.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_exponential.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_exponential.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_vector_relational.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_vector_relational.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/common.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_common.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_common.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/packing.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_packing.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_packing.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_half.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/type_half.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/geometric.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_geometric.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_geometric.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/matrix.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_matrix.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_matrix.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/vector_relational.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/integer.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_integer.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/detail/func_integer.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/gtc/matrix_transform.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/gtc/../gtc/constants.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/gtc/constants.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/gtc/matrix_transform.inl \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/gtx/transform.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/../glm/glm/gtx/transform.inl \
   /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/tmx_ini_parser.hpp \
   /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/tmx_render_system.hpp \
-  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/tmx_vertex_buffer.hpp \
-  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/tmx_shader_interface.hpp \
-  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/tmx_shader_loader.hpp
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/tmx_model_buffer.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/tmx_obj_loader.hpp \
+  /Users/marcelochsendorf/Desktop/SimpleTiledParser/tiled_loader/tmx_helper_functions.hpp

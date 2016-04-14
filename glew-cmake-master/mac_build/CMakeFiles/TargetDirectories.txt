@@ -1,0 +1,9 @@
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glew-cmake-master/mac_build/CMakeFiles/libglewmx_static.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glew-cmake-master/mac_build/CMakeFiles/libglew_static.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glew-cmake-master/mac_build/CMakeFiles/install.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glew-cmake-master/mac_build/CMakeFiles/glewinfo.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glew-cmake-master/mac_build/CMakeFiles/libglewmx_shared.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glew-cmake-master/mac_build/CMakeFiles/libglew_shared.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glew-cmake-master/mac_build/CMakeFiles/visualinfo.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glew-cmake-master/mac_build/CMakeFiles/ALL_BUILD.dir
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/glew-cmake-master/mac_build/CMakeFiles/ZERO_CHECK.dir

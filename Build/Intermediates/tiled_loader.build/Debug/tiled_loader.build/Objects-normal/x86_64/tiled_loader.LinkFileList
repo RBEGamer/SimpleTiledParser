@@ -1,9 +1,11 @@
 /Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/tmx_ini_parser.o
-/Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/tmx_shader_interface.o
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/shader.o
 /Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/tmx_map_loader.o
-/Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/tmx_vertex_buffer.o
-/Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/tmx_shader_loader.o
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/tmx_obj_loader.o
 /Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/main.o
 /Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/tmx_helper_functions.o
 /Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/tmx_render_system.o
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/tmx_resource_manager.o
 /Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/tmx_manager.o
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/tmx_entity.o
+/Users/marcelochsendorf/Desktop/SimpleTiledParser/Build/Intermediates/tiled_loader.build/Debug/tiled_loader.build/Objects-normal/x86_64/tmx_model_buffer.o

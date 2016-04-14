@@ -5,13 +5,24 @@
 //  tiled_loader
 //
 //  Created by Marcel Ochsendorf on 06.04.16.
-//  Copyright © 2016 Marcel Ochsendorf. All rights reserved.
+//  Copyright ï¿½ 2016 Marcel Ochsendorf. All rights reserved.
 //
 
-#if defined(_MAC)
-#include "../glfw/include/GLFW/glfw3.h"
-#endif
+//#define GLFW_INCLUDE_GLU
 
-#if defined(_WIN)
-#include "GLFW/glfw3.h"
+
+// Include standard headers
+#include <stdio.h>
+#include <stdlib.h>
+
+#if defined(__APPLE__)
+// Include GLEW
+//#include "../glew-cmake-master/include/GL/glew.h"
+// Include GLFW
+#include "../glfw/include/GLFW/glfw3.h"
+
+// Include GLM
+#include "glm_include.h"
+//#incl
 #endif
+//ude "../glfw/include/GLFW/glfw3.h"

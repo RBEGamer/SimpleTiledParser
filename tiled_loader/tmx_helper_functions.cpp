@@ -39,3 +39,21 @@ long getFileSize(FILE *inFile){
     fseek(inFile,0,SEEK_SET);
     return fileSize;
 }
+
+
+char *loadTextFromFile(const char *file, const char* _mode)
+{
+    FILE *currentFile = fopen(file, _mode);
+    if(currentFile == NULL){return  NULL;}
+    fseek(currentFile, 0, SEEK_END);
+    int count = (int)ftell(currentFile);
+    
+    rewind(currentFile);
+    char *data = (char *)malloc(sizeof(char)*(count +1));
+    count = (int)fread(data, sizeof(char), count, currentFile);
+    data[count] = '\0';
+    
+    fclose(currentFile);
+    
+    return data;
+}

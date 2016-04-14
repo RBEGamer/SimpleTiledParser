@@ -19,37 +19,45 @@
 
 #include "tmx_ini_parser.hpp"
 #include "tmx_render_system.hpp"
-#include "tmx_vertex_buffer.hpp"
+#include <limits>
 class tmx_manager{
 public:
-    tmx_manager(bool _running = true);
+    tmx_manager(bool _running = true,int _w = 320,int _h = 240,float _fov = 65.0f,float _fps = (1.0f/60.0f),std::string _title = "NO CONFIG");
     ~tmx_manager();
 
     
     
     
     
-     static  tmx_manager& getManagerInstance();
+    static  tmx_manager& getManagerInstance();
     static void destroyTmxManager();
     void run_main_loop();
     
-
+    float time_frame_start;
+    float time_frame_end;
+     float time_delta_time;
+    float run_timer;
     
+     float max_fps;
+    float current_time_fps;
+    int frame_counter;
+    
+    
+     int window_height;
+     int window_widht;
+     int window_fov;
+    
+    int framesize_width;
+    int framesize_height;
+     std::string window_title;
     bool is_running;
     GLFWwindow* _window;
-    tmx_vertex_buffer* vertex_buffer;
+  
     
+    tmx_render_system* render_system;
+   
     
-    tmx_render_system* _render_system;
-    
-    
-    struct window_settings{
-        int screen_w;
-        int screen_h;
-        float aspect_ratio;
-        
-    
-    };
+ 
 };
 
 
