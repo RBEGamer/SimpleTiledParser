@@ -8,37 +8,22 @@
 
 #include "tmx_ini_parser.hpp"
 
-
-/*
-read all content at once
- count the /n 
- alloc
- init
- get content of every /n
- if starts with [ jump to new sction
- 
-
-
-*/
-
-
 tmx_ini_loader::tmx_ini_loader(){
     loaded_ini_file = NULL;
     loaded_ini_file = new INI_FILE_DESC();
 }
 
-
 tmx_ini_loader::~tmx_ini_loader(){
     for (int i = 0; i < loaded_ini_file->section_count ; i++) {
         if((loaded_ini_file->sections+i)->kvpair == NULL){continue;}
-     //   delete  (loaded_ini_file->sections+i)->kvpair;
+        delete  (loaded_ini_file->sections+i)->kvpair;
     }
-  //  delete loaded_ini_file->sections;
-  //  delete loaded_ini_file;
+    delete loaded_ini_file->sections;
+    delete loaded_ini_file;
 }
 
 //TODO LOAD IN DICT
-std::string tmx_ini_loader::get_value(std::string _section, std::string _key){
+std::string tmx_ini_loader::get_value(std::string& _section, std::string& _key){
     for (int i = 0; i < loaded_ini_file->section_count ; i++) {
         if((loaded_ini_file->sections+i)->section_name == _section){
             for (int j = 0; j < (loaded_ini_file->sections+i)->key_value_count; j++) {
@@ -53,8 +38,7 @@ std::string tmx_ini_loader::get_value(std::string _section, std::string _key){
 }
 
 void tmx_ini_loader::load_ini_file(const char* _filepath){
-
-    
+    if(_filepath == NULL){return;}
     //READ COMPLETE FILE TO BUFFER
     char * complete_content_buffer = 0;
     long length;
@@ -137,14 +121,12 @@ void tmx_ini_loader::load_ini_file(const char* _filepath){
                 continue;
             }
         }
-        
-        
+
         //allocate memory fpr all sections
         for (int i = 0; i < loaded_ini_file->section_count; i++) {
             (loaded_ini_file->sections+i)->kvpair = new INI_FILE_KVPAIR[(loaded_ini_file->sections+i)->key_value_count]();
         }
-        
-        
+
         //load all kv pairs
         comma_counter_itr = strstr(file_content.c_str(), "\n");
          section_itr_counter = 0;
@@ -173,9 +155,7 @@ void tmx_ini_loader::load_ini_file(const char* _filepath){
                         kvpair_counter =0;
                     }
                 }
-                
-                
-                
+
                 section_itr_counter++;
             }else if(line_content.at(0) == ';'){
                            }else{
@@ -200,18 +180,7 @@ void tmx_ini_loader::load_ini_file(const char* _filepath){
                             kvpair_counter++;
             }
         }
-
-        
-        
-        
-        
-        
-             
-       
-        
-        
-        
-        
+  
     }else{
     
     }
